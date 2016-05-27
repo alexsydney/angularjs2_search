@@ -1,0 +1,6 @@
+TypeScript/
+node_modules/
+/builds/development/js/**
+!/builds/development/css/
+!/builds/development/index.html
+.DS_Store
