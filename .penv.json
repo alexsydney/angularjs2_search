@@ -1,1 +1,10 @@
-{"preview":"http://localhost:8000","terminals":[{"name":"Gulp","command":"gulp\r"}],"files":["builds/development/partials/app.html","builds/development/partials/artistitem.html"],"ui":{"bottom":false}}
+{
+	"preview":"http://localhost:8000",
+	"terminals":[{
+		"name":"Gulp",
+		"command":"gulp\r"
+	}],
+	"files":["process/typescript/app.component.ts",
+		"builds/development/css/app.css"
+	],"ui":{"bottom":false}
+}
