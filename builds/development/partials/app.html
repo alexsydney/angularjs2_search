@@ -1,1 +1,30 @@
-<h1>Welcome</h1>
+<!-- Template Syntax -->
+<h1>{{ orgName }}</h1> 
+<h2>{{ activityName }}</h2>
+
+<h3>
+	<label>Service:
+		<!-- Create Local Template Variable on input field and bind value to an event so AngularJS 2 runs change detection. Additionally bind on blur event when user leaves input field (by pressing Tab key) and when enter is pressed. Clear the input field value after each event. -->
+		<input #newService
+			(keyup.enter)="addService(newService.value); newService.value = '';"
+			(blur)="addService(newService.value)"
+		>
+		<button (click)="addService(newService.value); newService.value = '';">Add</button>
+	</label>
+</h3>
+
+<!-- Unordered List with Items -->
+<ul>
+	<!-- ngFor Directive Micro-Template. Use 'let' (instead of deprecated hashtag #) for Local Template Variable temporary (iteration variable) used with the Property for the sequence of events -->
+	<li (click)="onClickService(service)" *ngFor="let service of orgServices" style="display: inline;">
+		<!-- ngIf Directive Micro-Template -->
+		<button *ngIf="orgServices.length > 0">{{ service }}</button>
+	</li>
+</ul>
+
+<ul>
+	<li (click)="onClickMedal($event)" *ngFor="let medal of orgMedals">
+		<button>{{ medal.activity }}</button>
+		<button>{{ medal.kinds }}</button>
+	</li>
+</ul>
