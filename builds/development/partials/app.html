@@ -1,11 +1,30 @@
 <!-- Template Syntax -->
 <h1>{{ orgName }}</h1> 
-<h2>{{ activityName }}</h2>
+
+<!-- Option 1: Standard Interpolation Notation -->
+<!-- <h2>{{ activityName }}</h2> -->
+
+<!-- Option 2: Square Bracket Notation -->
+<h2 [innerHTML]="'name: ' + activityName"></h2>
+
+<!-- Option 3: Bind Notation -->
+<!-- <h2 bind-innerHTML="'name: ' + activityName"></h2> -->
 
 <h3>
 	<label>Service:
-		<!-- Create Local Template Variable on input field and bind value to an event so AngularJS 2 runs change detection. Additionally bind on blur event when user leaves input field (by pressing Tab key) and when enter is pressed. Clear the input field value after each event. -->
-		<input #newService
+		<!-- Create Local Template Variable on input field and bind value to an event so AngularJS 2 runs change detection. Additionally bind on blur event when user leaves input field (by pressing Tab key) and when enter is pressed. Clear the input field value after each event.
+
+		Prepopulate input field value using Square Bracket Notation.
+
+		Event Handler detects change of user input field value we can grab this dynamically changing value from the $event variable and store it to a variable property of Componet Class
+
+		[(ngModel)] may used instead of both [value] and (input), whilst still checking other events at the same time.
+		-->
+<!-- 		<input #newService 
+			[(ngModel)]="activityName" -->
+		<input #newService 
+			[value]="activityName"
+			(input)="activityName=$event.target.value" 
 			(keyup.enter)="addService(newService.value); newService.value = '';"
 			(blur)="addService(newService.value)"
 		>
@@ -23,7 +42,8 @@
 </ul>
 
 <ul>
-	<li (click)="onClickMedal($event)" *ngFor="let medal of orgMedals">
+	<!-- Click Event passes Local Template Variable called medalContainer (<li> HTML Element) to Event Handler -->
+	<li #medalContainer (click)="onClickMedal($event, medalContainer)" *ngFor="let medal of orgMedals">
 		<button>{{ medal.activity }}</button>
 		<button>{{ medal.kinds }}</button>
 	</li>
