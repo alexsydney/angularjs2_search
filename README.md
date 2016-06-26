@@ -30,3 +30,8 @@ git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git T
 
 * Build / Compile TS to JS. Run Server
 ```gulp```
+
+TODO
+========
+
+- Commit changes made in ./process/typescript
