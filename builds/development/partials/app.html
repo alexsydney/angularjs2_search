@@ -1,10 +1,9 @@
 <!-- Template Syntax -->
 
 <ul>
-	<li class="cf" *ngFor="let org of orgs">
-		<img style="width: 150px; height: 40px;" src="images/{{ org.shortname }}" alt="{{ org.name }} Photo">
-		<h3 class="btn">{{ org.name }}</h3>
-		<h5 class="btn">{{ org.location }}</h5>
+	<li class="cf" *ngFor="let item of orgs">
+		<!-- Pass Variable org-child-item from this Component Template to Child-Component Template Partial -->
+		<org-item [orgChildItem]=item></org-item>
 	</li>
 </ul>
 
