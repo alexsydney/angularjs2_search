@@ -123,7 +123,7 @@ a.small {
 
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 0.5em;
     margin-bottom: 0;
     font-size: 1.3rem;
     line-height: 140%;

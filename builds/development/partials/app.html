@@ -28,23 +28,23 @@
 			(keyup.enter)="addService(newService.value); newService.value = '';"
 			(blur)="addService(newService.value)"
 		>
-		<button (click)="addService(newService.value); newService.value = '';">Add</button>
+		<button class="btn-square" (click)="addService(newService.value); newService.value = '';">Add</button>
 	</label>
 </h3>
 
 <!-- Unordered List with Items -->
 <ul>
 	<!-- ngFor Directive Micro-Template. Use 'let' (instead of deprecated hashtag #) for Local Template Variable temporary (iteration variable) used with the Property for the sequence of events -->
-	<li (click)="onClickService(service)" *ngFor="let service of orgServices" style="display: inline;">
+	<li style="display: inline;" (click)="onClickService(service)" *ngFor="let service of orgServices">
 		<!-- ngIf Directive Micro-Template -->
-		<button *ngIf="orgServices.length > 0">{{ service }}</button>
+		<button class="btn" *ngIf="orgServices.length > 0">{{ service }}</button>
 	</li>
 </ul>
 
 <ul>
 	<!-- Click Event passes Local Template Variable called medalContainer (<li> HTML Element) to Event Handler -->
 	<li #medalContainer (click)="onClickMedal($event, medalContainer)" *ngFor="let medal of orgMedals">
-		<button>{{ medal.activity }}</button>
-		<button>{{ medal.kinds }}</button>
+		<button class="btn">{{ medal.activity }}</button>
+		<button class="btn">{{ medal.kinds }}</button>
 	</li>
 </ul>
