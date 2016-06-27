@@ -35,3 +35,4 @@ TODO
 ========
 
 - Commit changes made in ./process/typescript
+- Refactor Interfaces into their own class

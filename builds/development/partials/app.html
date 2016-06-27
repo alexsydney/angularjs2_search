@@ -1,19 +1,21 @@
 <!-- Template Syntax -->
 
-<ul>
-	<li class="cf" *ngFor="let item of orgs">
-		<!-- Pass Variable org-child-item from this Component Template to Child-Component Template Partial -->
-		<org-item [orgChildItem]=item></org-item>
-	</li>
-</ul>
-
 <h3>
 	<label>Search<span *ngIf="query">ing for: {{ query }}</span></label>
 	<input 
-	([ngModel])="query"
+	[(ngModel)]="query"
 	placeholder="Enter search brand search term" 
 	>
 </h3>
+
+<ul *ngIf="query">
+	<li (click)="onClickShowCurrentOrg(currentOrgItem); query='';" class="cf" *ngFor="let currentOrgItem of orgs">
+		<!-- Pass Variable org-child-item from this Component Template to Child-Component Template Partial -->
+		<org-item [orgChildItem]=currentOrgItem></org-item>
+	</li>
+</ul>
+
+<org-details *ngIf="currentOrg" [orgChildDetails]="currentOrg"></org-details>
 
 <!-- Option 1: Standard Interpolation Notation -->
 <!-- <h2>{{ activityName }}</h2> -->
