@@ -9,7 +9,7 @@
 </h3>
 
 <ul *ngIf="query">
-	<li (click)="onClickShowCurrentOrg(currentOrgItem); query='';" class="cf" *ngFor="let currentOrgItem of orgs">
+	<li (click)="onClickShowCurrentOrg(currentOrgItem); query='';" class="cf" *ngFor="let currentOrgItem of orgs | find:query">
 		<!-- Pass Variable org-child-item from this Component Template to Child-Component Template Partial -->
 		<org-item [orgChildItem]=currentOrgItem></org-item>
 	</li>

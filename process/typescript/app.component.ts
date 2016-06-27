@@ -2,12 +2,14 @@ import {Component} from 'angular2/core';
 import {OrgInterface} from './org.interface';
 import {OrgItemComponent} from './org-item.component';
 import {OrgDetailsComponent} from './org-details.component';
+import {SearchPipe} from './search.pipe';
 
 @Component({
   selector: 'my-app',
   // template: '<h1>Welcome</h1>'
   templateUrl: 'partials/app.html',
 	directives: [OrgItemComponent, OrgDetailsComponent],
+	pipes: [SearchPipe],
   // CSS Styles
   styles: [
   	// CSS Styles - Straight Quotes to Insert Specific Element
