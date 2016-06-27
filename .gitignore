@@ -1,4 +1,4 @@
-TypeScript/
+/TypeScript/
 node_modules/
 /builds/development/js/**
 !/builds/development/css/
