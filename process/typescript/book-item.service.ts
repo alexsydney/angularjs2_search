@@ -1,8 +1,8 @@
-import {BookInterface} from "./book.interface";
+import {BookItemInterface} from "./book-item.interface";
 
 export class BookItemService {
 
-  books: BookInterface[]; // Array of Book Type
+  books: BookItemInterface[]; // Array of Book Type
 
   get() {
     return this.books;
@@ -29,7 +29,7 @@ export class BookItemService {
  * (in object format defined in Interface) and fed with raw sample Data.
  * JSON representations of the content.
  */
-let BOOKS: BookInterface[] = [
+let BOOKS: BookItemInterface[] = [
   {
     "name": "El Pooch",
     "shortname": "images/elpooch.jpg",

@@ -32,5 +32,4 @@ git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git T
 * TSLint
 ```gulp tslint```
 
-* Build / Compile Sass to CSS / Compile TS to JS. Run Server
-```gulp```
+* Build / Compile Sass to CSS / Compile TS to JS. Run Server ```gulp```

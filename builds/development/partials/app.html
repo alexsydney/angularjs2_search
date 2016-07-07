@@ -19,9 +19,15 @@
 		  <div class="row navbar-menu-list">
 		    <div class="collapse navbar-collapse col-xs-12 col-sm-12" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-left">
+
+		      <!-- Iterate through both BookItemService and BookSpecialService -->
+
 		      	<!-- TODO implement class="active" -->
 		      	<li *ngFor="let currentBookItem of bookItems">
 		      		<a href="#"><h6>{{ currentBookItem.name }}</h6></a>
+		        </li>
+		        <li *ngFor="let currentBookSpecial of bookSpecials">
+		      		<a href="#"><h6>{{ currentBookSpecial.name }}</h6></a>
 		        </li>
 		      </ul>
 		    </div>
@@ -46,7 +52,12 @@
 
     		</div>
     		<div class="col-xs-12 col-sm-6">
-
+    			<ul>
+						<li *ngFor="let currentBookSpecial of bookSpecials" class="cf">
+							<!-- Pass Variable book-child-special from this Component Template to Child-Component Template Partial -->
+    					<book-special [bookChildSpecial]=currentBookSpecial></book-special>
+    				</li>
+					</ul>
     		</div>
     	</div>
 

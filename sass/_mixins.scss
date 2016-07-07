@@ -17,7 +17,39 @@
   &:focus, &.focus { @include brandColorLinkOther($fontColor); }
 }
 
+@mixin bookWrapper() {
+  background-color: #ffffff;
+  margin: 5px auto;
+}
+
 @mixin componentDropshadow() {
   box-shadow: 3px 3px 3px #aaaaaa;
   border-radius: 2px;
+}
+
+@mixin figCaptionDetails() {
+  padding: 10px;
+  border-bottom: 1px solid #eeeeee;
+  > h3, h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+  }
+  > h5 {
+    color: $brandGray;
+  }
+}
+
+@mixin figCaptionLinks() {
+  padding: 10px;
+  width: 100%;
+  .firstLink > a {
+    @include brandColorStates($brandBlack);
+  }
+  .secondLink > a {
+    @include brandColorStates($brandOrange);
+  }
+}
+
+@mixin linksSpacer() {
+  padding: 10px;
 }

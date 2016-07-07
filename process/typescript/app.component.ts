@@ -1,7 +1,9 @@
 import {Component} from "angular2/core";
 import {BookWelcomeComponent} from "./book-welcome.component";
 import {BookItemComponent} from "./book-item.component";
+import {BookSpecialComponent} from "./book-special.component";
 import {BookItemService} from "./book-item.service";
+import {BookSpecialService} from "./book-special.service";
 // import {SearchPipe} from "./search.pipe";
 
 // TypeScript compiles to JavaScript and creates the templates
@@ -9,7 +11,7 @@ import {BookItemService} from "./book-item.service";
 @Component({
   selector: "my-app",
   templateUrl: "partials/app.html",
-  directives: [BookWelcomeComponent, BookItemComponent],
+  directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],
   // pipes: [SearchPipe],
   // CSS Styles
   styles: [
@@ -37,12 +39,15 @@ import {BookItemService} from "./book-item.service";
 export class AppComponent {
 
 	// Constructor/Initialiser function to auto setup instance value of Component
-  constructor(private bookItemService: BookItemService) {}
+  constructor(private bookItemService: BookItemService, private bookSpecialService: BookSpecialService) {}
 
   ngOnInit() {
     this.bookItems = this.bookItemService.get();
+    this.bookSpecials = this.bookSpecialService.get();
   }
 
+  // Iterate over these in app.html
   bookItems;
+  bookSpecials;
 
 } // end export

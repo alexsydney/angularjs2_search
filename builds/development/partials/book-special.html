@@ -1,0 +1,25 @@
+<div class="row bookSpecialWrapper componentEffects">
+
+	<!-- Accessible Code -->
+	<figure class="col-xs-12">
+		<!-- Random Image using LoremFlickr -->
+		<img class="book-child-special" src="{{ bookChildSpecial.shortname || 'http://loremflickr.com/320/240/book/all' }}" alt="{{ bookChildSpecial.shortname }} Photo">
+		<h2><span>{{ bookChildSpecial.name }}</span></h2>
+	</figure>
+
+	<figcaption class="col-xs-12">
+		<div class="row">
+			<div class="bookFigCaptionDetails">
+				<h5>Number {{ bookChildSpecial.number }}</h5>
+				<h5>{{ bookChildSpecial.addressLine1 }}</h5>
+				<h5>{{ bookChildSpecial.addressLine2 }}</h5>
+			</div>
+			<div class="bookFigCaptionLinks">
+				<span class="firstLink"><a href="#">SHARE</a></span>
+				<span class="bookLinksSpacer"></span>
+	      <span class="secondLink"><a href="#">EXPLORE</a></span>
+	    </div>
+		</div>
+	</figcaption>
+
+</div>
