@@ -1,0 +1,27 @@
+$backgroundColor: #ffffff;
+$brandBlack: #000000;
+$brandPink: #ec1561;
+$brandOrange: #ffaf39;
+$brandGray: #d2d2d2;
+
+// Media queries breakpoints
+
+// Extra small screen / phone
+$screen-xs-min: 480px !default;
+
+// Small screen / tablet
+$screen-sm-min: 768px !default;
+
+// Medium screen / desktop
+$screen-md-min: 992px !default;
+
+// Large screen / wide desktop
+$screen-lg-min: 1200px !default;
+
+// Large screen / wider desktop      
+$screen-lg-med: 1260px !default;
+
+// Prevent overlapping
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;

@@ -1,16 +1,17 @@
-import {Pipe} from 'angular2/core';
+import {Pipe} from "angular2/core";
 
 @Pipe({
-	name: 'find'
+  name: "find"
 })
 
 export class SearchPipe {
-	transform(pipeData, [pipeModifier]) {
-		return pipeData.filter((eachItem) => {
-			return eachItem['name'].toLowerCase()
-							.includes(pipeModifier.toLowerCase()) ||
-						 eachItem['location'].toLowerCase()
-							.includes(pipeModifier.toLowerCase())
-		})
-	}
+  transform(pipeData, [pipeModifier]) {
+    return pipeData.filter((eachItem) => {
+      return eachItem["name"].toLowerCase()
+              .includes(pipeModifier.toLowerCase()) ||
+             eachItem["location"].toLowerCase()
+              .includes(pipeModifier.toLowerCase())
+      ;
+    });
+  }
 }

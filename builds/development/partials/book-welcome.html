@@ -1,0 +1,55 @@
+<div class="row bookWelcomeWrapper componentEffects">
+
+	<div class="bookWelcomeDetails">
+		<h3>Welcome back!</h3>
+		<h5>
+			It's been a while.<br>
+			Read any new books lately?
+		</h5>
+	</div>
+	<div class="bookWelcomeLinks">
+		<span class="firstLink"><a href="#">NO</a></span>
+		<span class="bookWelcomeLinksSpacer"></span>
+    <span class="secondLink">
+    	<!-- Button HTML (to Trigger Modal) -->
+			<a href="#myModal" role="button" data-toggle="modal">YES</a>
+
+			<!-- Modal HTML -->
+			<div id="myModal" class="modal fade">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			            </div>
+
+			            <div class="modal-body">
+			                <p>Please enter information about the book you read lately.</p>
+			            </div>
+
+									<input #newBookName 
+										[value]="bookName"
+										(input)="bookName=$event.target.value" 
+										(keyup.enter)="addBook(newBookName.value); newBook.value = '';"
+										(blur)="addBook(newBookName.value)"
+									>
+
+									<input #newBookAuthor
+										[value]="authorName"
+										(input)="authorName=$event.target.value" 
+										(keyup.enter)="addBook(newBookAuthor.value); newBook.value = '';"
+										(blur)="addBook(newBookAuthor.value)"
+									>
+
+			            <div class="modal-footer">
+			                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			                <button 
+			                	(click)="addBook(newBookName.value, newBookAuthor.value); newBookName.value = ''; newBookAuthor.value = '';" type="button" class="btn btn-primary">Save Book</button>
+			            </div>
+
+			        </div>
+			    </div>
+			</div>
+    </span>
+  </div>
+
+<div>
