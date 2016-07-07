@@ -1,15 +1,16 @@
 <div *ngIf="hasNewBook === true" class="row bookWelcomeWrapper componentEffects">
 
 	<div class="bookWelcomeDetails">
-		<h3>Welcome back!</h3>
+		<h2>Welcome back!</h2>
 		<h5>
 			It's been a while.<br>
 			Read any new books lately?
 		</h5>
+		<br>
 	</div>
 	<div class="bookWelcomeLinks">
 		<span class="firstLink"><a (click)="onClose()">NO</a></span>
-		<span class="bookWelcomeLinksSpacer"></span>
+		<span class="bookLinksSpacer"></span>
     <span class="secondLink">
     	<!-- Button HTML (to Trigger Modal) -->
 			<a href="#myModal" role="button" data-toggle="modal">YES</a>
@@ -48,6 +49,7 @@
 					            	</ul>
 					            	<br>
 					            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					            	<!-- Submit disabled unless satisfy validation -->
 				                <button [disabled]="!form.valid" type="submit" class="btn btn-success">Save Book</button>
 				              </form>
 			            </div>

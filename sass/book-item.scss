@@ -2,13 +2,11 @@
 @import 'mixins';
 
 .bookWrapper {
-	background-color: #ffffff;
-	margin: 5px auto;
+	@include bookWrapper();
 }
 
 .book-child-item {
   background-color: $brandPink;
-  float: left;
 }
 
 img {
@@ -16,29 +14,8 @@ img {
   height: 100%;
 }
 
-.bookFigCaptionDetails {
-	padding: 10px;
-	border-bottom: 1px solid #eeeeee;
-  > h3, h5 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-  }
-  > h5 {
-    color: $brandGray;
-  }
-}
+.bookFigCaptionDetails { @include figCaptionDetails(); }
 
-.bookFigCaptionLinks {
-	padding: 10px;
-	width: 100%;
-  .firstLink > a {
-    @include brandColorStates($brandBlack);
-  }
-  .secondLink > a {
-    @include brandColorStates($brandOrange);
-  }
-}
+.bookFigCaptionLinks { @include figCaptionLinks(); }
 
-.bookFigCaptionLinksSpacer {
-	padding: 10px;
-}
+.bookLinksSpacer { @include linksSpacer(); }

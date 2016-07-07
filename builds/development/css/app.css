@@ -29,51 +29,26 @@ ol, ul {
 a img {
   border: none; }
 
-* {
-  box-sizing: border-box; }
-
 /* Base Styles */
 .cf:before,
 .cf:after {
   content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */ }
+  display: table; }
 
 .cf:after {
   clear: both; }
 
 html {
-  background-color: #F7F7F7;
   min-height: 100%;
   height: auto; }
 
 body {
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   line-height: 160%;
-  color: #555459;
   line-height: 1.5rem;
-  *zoom: 1; }
-
-.card {
-  background: white;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 40px;
-  position: relative;
-  opacity: .95;
-  border-radius: 4px;
-  border: 1px solid #e8e8e8;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
-
-@media all and (max-width: 400px) {
-  main {
-    width: 100%; } }
+  zoom: 1; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato', serif;
   font-weight: 100; }
 
 h1 {
@@ -82,7 +57,6 @@ h1 {
   margin-bottom: 10px;
   padding-top: 10px;
   font-weight: 700;
-  font-family: Lato,appleLogo,sans-serif;
   margin: 0 0 1rem; }
 
 h2 {
@@ -98,13 +72,9 @@ h3 {
   line-height: 110%;
   margin-bottom: 5px; }
 
-a.small {
-  line-height: 100%;
-  font-size: .9rem; }
-
 .btn {
   display: inline-block;
-  padding: 0.5em;
+  padding: 0.25em;
   margin-bottom: 0;
   font-size: 1.3rem;
   line-height: 140%;
@@ -116,8 +86,6 @@ a.small {
   border: 1px solid transparent;
   border-radius: 4px;
   color: white;
-  background-color: #2D8BCF;
-  background-size: 18px 18px;
   min-width: 28px;
   min-height: 28px;
   background-position: center center;
@@ -231,13 +199,15 @@ body .success {
 body .error {
   color: red; }
 
+body .btn-default {
+  background-color: #e6e6e6 !important; }
+
 .bookWrapper {
   background-color: #ffffff;
   margin: 5px auto; }
 
 .book-child-item {
-  background-color: #ec1561;
-  float: left; }
+  background-color: #ec1561; }
 
 img {
   width: 100%;
@@ -282,7 +252,81 @@ img {
 .bookFigCaptionLinks .secondLink > a:focus, .bookFigCaptionLinks .secondLink > a.focus {
   color: #ec8c00 !important; }
 
-.bookFigCaptionLinksSpacer {
+.bookLinksSpacer {
+  padding: 10px; }
+
+.bookSpecialWrapper {
+  background-color: #ffffff;
+  margin: 5px auto; }
+
+@media all and (min-width: 768px) {
+  .bookSpecialWrapper {
+    margin-left: 10px; } }
+
+.book-child-special {
+  background-color: #ec1561; }
+
+img {
+  width: 100%;
+  height: 100%; }
+
+h2 span {
+  color: #ffffff;
+  font-size: 3vw; }
+
+.bookSpecialWrapper figure img {
+  position: relative;
+  width: 100%; }
+
+.bookSpecialWrapper figure h2 span {
+  position: absolute;
+  bottom: 50px;
+  left: 30px; }
+
+@media all and (max-width: 767px) {
+  h2 span {
+    font-size: 6vw; } }
+
+.bookFigCaptionDetails {
+  padding: 10px;
+  border-bottom: 1px solid #eeeeee; }
+
+.bookFigCaptionDetails > h3, .bookFigCaptionDetails h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal; }
+
+.bookFigCaptionDetails > h5 {
+  color: #d2d2d2; }
+
+.bookFigCaptionLinks {
+  padding: 10px;
+  width: 100%; }
+
+.bookFigCaptionLinks .firstLink > a {
+  color: #000000; }
+
+.bookFigCaptionLinks .firstLink > a:hover, .bookFigCaptionLinks .firstLink > a.hover {
+  color: black !important; }
+
+.bookFigCaptionLinks .firstLink > a:active, .bookFigCaptionLinks .firstLink > a.active {
+  color: black !important; }
+
+.bookFigCaptionLinks .firstLink > a:focus, .bookFigCaptionLinks .firstLink > a.focus {
+  color: black !important; }
+
+.bookFigCaptionLinks .secondLink > a {
+  color: #ffaf39; }
+
+.bookFigCaptionLinks .secondLink > a:hover, .bookFigCaptionLinks .secondLink > a.hover {
+  color: #ec8c00 !important; }
+
+.bookFigCaptionLinks .secondLink > a:active, .bookFigCaptionLinks .secondLink > a.active {
+  color: #ec8c00 !important; }
+
+.bookFigCaptionLinks .secondLink > a:focus, .bookFigCaptionLinks .secondLink > a.focus {
+  color: #ec8c00 !important; }
+
+.bookLinksSpacer {
   padding: 10px; }
 
 .bookWelcomeWrapper {
@@ -297,8 +341,13 @@ img {
   font-family: 'Roboto', sans-serif;
   font-weight: normal; }
 
-.bookWelcomeDetails > h3 {
-  color: #ec1561; }
+.bookWelcomeDetails > h5 {
+  color: #d2d2d2; }
+
+.bookWelcomeDetails > h2 {
+  color: #ec1561;
+  font-size: 1.4em;
+  padding-bottom: 10px; }
 
 .bookWelcomeLinks {
   margin-left: 10px;
@@ -329,5 +378,5 @@ img {
 .bookWelcomeLinks .secondLink > a:focus, .bookWelcomeLinks .secondLink > a.focus {
   color: #ec8c00 !important; }
 
-.bookWelcomeLinksSpacer {
+.bookLinksSpacer {
   padding: 10px; }

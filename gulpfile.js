@@ -39,6 +39,7 @@ gulp.task('clean', function() {
   del([
     !appSrc + 'index.html',
     !appSrc + 'partials/**',
+    !appSrc + 'images/**',
     !appSrc + 'js/lib/angular2/**',
     !appSrc + 'js/lib/bootstrap-3.3.6-dist/**',
     appSrc + 'css/*.css',
