@@ -143,7 +143,8 @@ body .nav-container .navbar-header {
   margin-left: 0.7em; }
 
 body .nav-container .navbar-toggle {
-  border-color: transparent; }
+  border-color: transparent;
+  float: left; }
 
 body .nav-container .navbar-toggle.collapsed {
   color: #000000;
@@ -223,6 +224,12 @@ body .nav-container .navbar-menu-list li > a:focus {
 body .componentEffects {
   box-shadow: 3px 3px 3px #aaaaaa;
   border-radius: 2px; }
+
+body .success {
+  color: green; }
+
+body .error {
+  color: red; }
 
 .bookWrapper {
   background-color: #ffffff;

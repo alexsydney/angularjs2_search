@@ -1,4 +1,4 @@
-<div class="row bookWelcomeWrapper componentEffects">
+<div *ngIf="hasNewBook === true" class="row bookWelcomeWrapper componentEffects">
 
 	<div class="bookWelcomeDetails">
 		<h3>Welcome back!</h3>
@@ -8,7 +8,7 @@
 		</h5>
 	</div>
 	<div class="bookWelcomeLinks">
-		<span class="firstLink"><a href="#">NO</a></span>
+		<span class="firstLink"><a (click)="onClose()">NO</a></span>
 		<span class="bookWelcomeLinksSpacer"></span>
     <span class="secondLink">
     	<!-- Button HTML (to Trigger Modal) -->
@@ -22,28 +22,37 @@
 			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			            </div>
 
-			            <div class="modal-body">
+			            <div class="modal-body newBookForm">
 			                <p>Please enter information about the book you read lately.</p>
+
+			                <!-- Model-Driven Form with Directive Binding -->
+			                <form 
+			                	(ngSubmit)="onSubmit(form.value)" 
+			                	[ngFormModel]="form">
+
+					            	<ul>
+					            		<li class="newBookFormItem cf">
+					            			<div *ngIf="duplicateExists === true" class="error">Duplicate Book Name or Book Author exists. Try again!</div>
+					            			<div *ngIf="successCreatingBook === true" class="success">Success. New book added!</div>
+					            			<label for="bookName" class="newBookFormLabel">Book Name</label>
+					            			<!-- Usage of glowing border -->
+					            			<input type="text" class="glowing-border" name="bookName" id="bookName" required autofocus ngControl="name" #name="ngForm">
+					            			<div *ngIf="name.errors?.pattern" class="error">Book Name has invalid characters</div>
+					            		</li>
+					            		<!-- Clearfix to ensure vertical alignment -->
+					            		<li class="newBookFormItem cf">
+					            			<label for="authorName" class="newBookFormLabel">Author Name</label>
+					            			<input type="text" class="glowing-border" name="authorName" id="authorName" required ngControl="author" #author="ngForm">
+					            			<div *ngIf="author.errors?.pattern" class="error">Author Name has invalid characters</div>
+					            		</li>
+					            	</ul>
+					            	<br>
+					            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				                <button [disabled]="!form.valid" type="submit" class="btn btn-success">Save Book</button>
+				              </form>
 			            </div>
 
-									<input #newBookName 
-										[value]="bookName"
-										(input)="bookName=$event.target.value" 
-										(keyup.enter)="addBook(newBookName.value); newBook.value = '';"
-										(blur)="addBook(newBookName.value)"
-									>
-
-									<input #newBookAuthor
-										[value]="authorName"
-										(input)="authorName=$event.target.value" 
-										(keyup.enter)="addBook(newBookAuthor.value); newBook.value = '';"
-										(blur)="addBook(newBookAuthor.value)"
-									>
-
 			            <div class="modal-footer">
-			                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			                <button 
-			                	(click)="addBook(newBookName.value, newBookAuthor.value); newBookName.value = ''; newBookAuthor.value = '';" type="button" class="btn btn-primary">Save Book</button>
 			            </div>
 
 			        </div>

@@ -1,23 +1,18 @@
 import {Component} from "angular2/core";
-import {BookInterface} from "./book.interface";
 import {BookWelcomeComponent} from "./book-welcome.component";
 import {BookItemComponent} from "./book-item.component";
-import {OrgInterface} from "./org.interface";
-import {OrgItemComponent} from "./org-item.component";
-import {OrgDetailsComponent} from "./org-details.component";
-import {SearchPipe} from "./search.pipe";
+import {BookItemService} from "./book-item.service";
+// import {SearchPipe} from "./search.pipe";
 
+// TypeScript compiles to JavaScript and creates the templates
+// which provide the markup and populate the content on the page
 @Component({
   selector: "my-app",
-  // template: "<h1>Welcome</h1>"
   templateUrl: "partials/app.html",
-  directives: [BookWelcomeComponent, BookItemComponent, OrgItemComponent, OrgDetailsComponent],
-  pipes: [SearchPipe],
+  directives: [BookWelcomeComponent, BookItemComponent],
+  // pipes: [SearchPipe],
   // CSS Styles
   styles: [
-  	// CSS Styles - Straight Quotes to Insert Specific Element
-    ".brandColor",
-
   	// CSS Styles - Backtick usage
     `
       .contentWrapper {
@@ -28,33 +23,6 @@ import {SearchPipe} from "./search.pipe";
       .navbar-menu-list h6 {
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
-      }
-
-      .btn-square {
-        display: inline-block;
-        padding: 0.75em;
-        margin-bottom: 0;
-        font-size: 1.3rem;
-        line-height: 140%;
-        text-align: center;
-        vertical-align: middle;
-        text-decoration: none;
-        white-space: nowrap;
-        cursor: pointer;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        color: #ffffff;
-        background-color: #ff5577;
-        background-size: 18px 18px;
-        min-width: 28px;
-        min-height: 28px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        -webkit-user-select: none;
-          -moz-user-select: none;
-            -ms-user-select: none;
-              -o-user-select: none;
-                user-select: none;
       }
     `
   ],
@@ -68,119 +36,13 @@ import {SearchPipe} from "./search.pipe";
 
 export class AppComponent {
 
-	// Simple Notation
-  name = "Luke";
-
-	// Formal Notation in ES6 and Class-based Architectures
-
-	// Variable Property of Component Declarations of specific strict type
-	// orgName: string;
-
-  books: BookInterface[];
-  bookName: string = "";
-  authorName: string = "";
- 
-  orgs: OrgInterface[]; // Array of Org Type
-  currentOrg: OrgInterface;
-  orgServices: string[]; // Array
-  orgMedals: any; // Object of type any
-  activityName: string = "";
-
-  addBook(newBook) {
-    console.log("Added Book: " + newBook);
-    this.books.push(newBook);
-  };
-
-	// Angular JS 2 event tracking. Passing an event is treated differently 
-	// from passing a Local Template Variable
-  onClickService(service) {
-    this.activityName = service;
-  };
-
-  onClickMedal(e, medalItemElement) {
-		// console.log(e.target.innerHTML);
-    this.activityName = ""; // Reset value shown
-    this.activityName = e.target.innerHTML;
-		// console.log("medalItemElement is: " + medalItemElement);
-    medalItemElement.style.backgroundColor = "#ffee55";
-  };
-
-  onClickShowCurrentOrg(item) {
-    this.currentOrg = item;
-  };
-
-  addService(newService) {
-    console.log("Added Service: " + newService);
-    this.orgServices.push(newService);
-  };
-
 	// Constructor/Initialiser function to auto setup instance value of Component
-  constructor() {
+  constructor(private bookItemService: BookItemService) {}
 
-		// Data Structures with Strict Typing
-
-		// this.orgName = "Race"; // Property
-
-    // Declare Variable orgs fed with Constant BOOKS
-    this.books = BOOKS;
-
-		// Declare Variable orgs fed with Constant ORGS
-    this.orgs = ORGS;
-
-		// Array
-    this.orgServices = ["Social Networking", "Record Results"];
-
-		// Array of Objects containing Properties
-    this.orgMedals = [
-      {
-        activity: "Running",
-        kinds: ["Normal", "Trips"]
-      },
-      {
-        activity: "Swimming",
-        kinds: ["Normal", "Near-Drownings"]
-      },
-      {
-        activity: "Cycling",
-        kinds: ["Normal", "Highside", "Lowside"]
-      },
-      {
-        activity: "Triathalon",
-        kinds: ["Normal", "Exhaustion"]
-      }
-    ];
-
+  ngOnInit() {
+    this.bookItems = this.bookItemService.get();
   }
+
+  bookItems;
 
 } // end export
-
-/**
- * Variable Constant ORGS is an Array of Type Org
- * (in object format defined in Interface) and fed with raw sample Data
- */
-
-let BOOKS: BookInterface[] = [
-  {
-    "name": "El Pooch",
-    "shortname": "elpooch",
-    "author": "Alex Nelson"
-  },
-  {
-    "name": "The Flight",
-    "shortname": "theflight",
-    "author": "Scott Masterson"
-  }
-];
-
-let ORGS: OrgInterface[] = [
-  {
-    "name": "Brand 1",
-    "shortname": "brand1",
-    "location": "Tokyo"
-  },
-  {
-    "name": "Brand 2",
-    "shortname": "brand2",
-    "location": "Sydney"
-  }
-];

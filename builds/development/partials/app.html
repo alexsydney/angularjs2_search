@@ -20,7 +20,7 @@
 		    <div class="collapse navbar-collapse col-xs-12 col-sm-12" id="myNavbar">
 		      <ul class="nav navbar-nav navbar-left">
 		      	<!-- TODO implement class="active" -->
-		      	<li *ngFor="let currentBookItem of books">
+		      	<li *ngFor="let currentBookItem of bookItems">
 		      		<a href="#"><h6>{{ currentBookItem.name }}</h6></a>
 		        </li>
 		      </ul>
@@ -38,7 +38,7 @@
 					<book-welcome [bookChildWelcome]=currentBookWelcome></book-welcome>
 
 					<ul>
-						<li *ngFor="let currentBookItem of books" class="cf">
+						<li *ngFor="let currentBookItem of bookItems" class="cf">
 							<!-- Pass Variable book-child-item from this Component Template to Child-Component Template Partial -->
 							<book-item [bookChildItem]=currentBookItem></book-item>
 						</li>
@@ -49,72 +49,6 @@
 
     		</div>
     	</div>
-
-    	<div class="row">
-				<h3>
-					<label>Search<span *ngIf="query">ing for: {{ query }}</span></label>
-					<input 
-					[(ngModel)]="query"
-					placeholder="Enter search brand search term" 
-					>
-				</h3>
-
-				<ul *ngIf="query">
-					<li (click)="onClickShowCurrentOrg(currentOrgItem); query='';" class="cf" *ngFor="let currentOrgItem of orgs | find:query">
-						<!-- Pass Variable org-child-item from this Component Template to Child-Component Template Partial -->
-						<org-item [orgChildItem]=currentOrgItem></org-item>
-					</li>
-				</ul>
-
-				<org-details *ngIf="currentOrg" [orgChildDetails]="currentOrg"></org-details>
-
-				<!-- Option 1: Standard Interpolation Notation -->
-				<!-- <h2>{{ activityName }}</h2> -->
-
-				<!-- Option 2: Square Bracket Notation -->
-				<h2 [innerHTML]="'name: ' + activityName"></h2>
-
-				<!-- Option 3: Bind Notation -->
-				<!-- <h2 bind-innerHTML="'name: ' + activityName"></h2> -->
-
-				<h3>
-					<label>Service:	</label>
-					<!-- Create Local Template Variable on input field and bind value to an event so AngularJS 2 runs change detection. Additionally bind on blur event when user leaves input field (by pressing Tab key) and when enter is pressed. Clear the input field value after each event.
-
-					Prepopulate input field value using Square Bracket Notation.
-
-					Event Handler detects change of user input field value we can grab this dynamically changing value from the $event variable and store it to a variable property of Componet Class
-
-					[(ngModel)] may used instead of both [value] and (input), whilst still checking other events at the same time.
-					-->
-				<!-- 		<input #newService 
-							[(ngModel)]="activityName" -->
-					<input #newService 
-						[value]="activityName"
-						(input)="activityName=$event.target.value" 
-						(keyup.enter)="addService(newService.value); newService.value = '';"
-						(blur)="addService(newService.value)"
-					>
-					<button class="btn-square" (click)="addService(newService.value); newService.value = '';">Add</button>
-				</h3>
-
-				<!-- Unordered List with Items -->
-				<ul>
-					<!-- ngFor Directive Micro-Template. Use 'let' (instead of deprecated hashtag #) for Local Template Variable temporary (iteration variable) used with the Property for the sequence of events -->
-					<li class="cf" (click)="onClickService(service)" *ngFor="let service of orgServices">
-						<!-- ngIf Directive Micro-Template -->
-						<button class="btn" *ngIf="orgServices.length > 0">{{ service }}</button>
-					</li>
-				</ul>
-
-				<ul>
-					<!-- Click Event passes Local Template Variable called medalContainer (<li> HTML Element) to Event Handler -->
-					<li #medalContainer (click)="onClickMedal($event, medalContainer)" *ngFor="let medal of orgMedals">
-						<button class="btn">{{ medal.activity }}</button>
-						<button class="btn">{{ medal.kinds }}</button>
-					</li>
-				</ul>
-			</div>
 
 		</div>
 	</div>

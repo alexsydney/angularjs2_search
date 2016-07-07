@@ -22,6 +22,7 @@ body {
 
 		.navbar-toggle {
 			border-color: transparent;
+			float: left;
 
 			&.collapsed {
 				color: #000000;
@@ -95,6 +96,7 @@ body {
 
 	}
 
+	// Implement commonly used breakpoint for responsive styles
 	@media all and (max-width: $screen-xs-max){ 
 
 		.navbar-menu-list {
@@ -106,6 +108,13 @@ body {
 
 	.componentEffects {
 		@include componentDropshadow();
+	}
+
+	.success {
+		color: green;
+	}
+	.error {
+		color: red;
 	}
 
 }
