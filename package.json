@@ -8,18 +8,25 @@
     "url": "https://github.com/ltfschoen/angularjs2_search.git"
   },
   "devDependencies": {
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
     "angular2": "2.0.0-beta.17",
+    "del": "^2.2.1",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.35.1",
-    "eslint": "^2.10.2",
-    "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^5.0.0",
     "gulp-typescript": "^2.10.0",
     "gulp-webserver": "^0.9.1",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.29",
+    "tslint": "^3.13.0",
     "zone.js": "^0.6.12"
   }
 }

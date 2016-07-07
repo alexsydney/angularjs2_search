@@ -1,0 +1,23 @@
+<div class="row bookWrapper componentEffects">
+
+	<!-- Accessible Code -->
+	<figure class="col-xs-3">
+		<!-- Random Image using LoremFlickr -->
+		<img class="book-child-item" src="{{ bookChildItem.shortname || 'http://loremflickr.com/320/240/book/all' }}" alt="{{ bookChildItem.name }} Photo">
+	</figure>
+
+	<figcaption class="col-xs-9">
+		<div class="row">
+			<div class="bookFigCaptionDetails">
+				<h3>{{ bookChildItem.name }}</h3>
+				<h5>By {{ bookChildItem.author }}</h5>
+			</div>
+			<div class="bookFigCaptionLinks">
+				<span class="firstLink"><a href="#">FREE SAMPLE</a></span>
+				<span class="bookFigCaptionLinksSpacer"></span>
+	      <span class="secondLink"><a href="#">REVIEW</a></span>
+	    </div>
+		</div>
+	</figcaption>
+
+</div>

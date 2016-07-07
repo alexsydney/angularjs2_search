@@ -1,0 +1,44 @@
+@import 'variables';
+@import 'mixins';
+
+.bookWrapper {
+	background-color: #ffffff;
+	margin: 5px auto;
+}
+
+.book-child-item {
+  background-color: $brandPink;
+  float: left;
+}
+
+img {
+  width: 100%; 
+  height: 100%;
+}
+
+.bookFigCaptionDetails {
+	padding: 10px;
+	border-bottom: 1px solid #eeeeee;
+  > h3, h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+  }
+  > h5 {
+    color: $brandGray;
+  }
+}
+
+.bookFigCaptionLinks {
+	padding: 10px;
+	width: 100%;
+  .firstLink > a {
+    @include brandColorStates($brandBlack);
+  }
+  .secondLink > a {
+    @include brandColorStates($brandOrange);
+  }
+}
+
+.bookFigCaptionLinksSpacer {
+	padding: 10px;
+}

@@ -1,0 +1,23 @@
+@mixin brandColorLink($fontColor) {
+  color: $fontColor;
+}
+
+@mixin brandColorLinkOther($fontColor) {
+  color: darken($fontColor, 15%) !important;
+}
+
+@mixin brandColorStates($fontColor) {
+
+  // State by default
+  @include brandColorLink($fontColor);
+
+  // State otherwise
+  &:hover, &.hover { @include brandColorLinkOther($fontColor); }
+  &:active, &.active { @include brandColorLinkOther($fontColor); }
+  &:focus, &.focus { @include brandColorLinkOther($fontColor); }
+}
+
+@mixin componentDropshadow() {
+  box-shadow: 3px 3px 3px #aaaaaa;
+  border-radius: 2px;
+}

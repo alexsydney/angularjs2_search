@@ -26,7 +26,11 @@ git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git T
 ```npm install tslint typescript --save```
 
 * Install Dependencies
+```npm cache clean```
 ```npm install```
 
-* Build / Compile TS to JS. Run Server
+* TSLint
+```gulp tslint```
+
+* Build / Compile Sass to CSS / Compile TS to JS. Run Server
 ```gulp```
