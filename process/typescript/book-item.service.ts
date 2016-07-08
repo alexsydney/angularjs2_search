@@ -32,12 +32,12 @@ export class BookItemService {
 let BOOKS: BookItemInterface[] = [
   {
     "name": "El Pooch",
-    "shortname": "images/elpooch.jpg",
-    "author": "Alex Nelson"
+    "author": "Alex Nelson",
+    "shortname": "images/elpooch.jpg"
   },
   {
     "name": "The Flight",
-    "shortname": "images/theflight.jpg",
-    "author": "Scott Masterson"
+    "author": "Scott Masterson",
+    "shortname": "images/theflight.jpg"
   }
 ];

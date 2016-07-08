@@ -5,6 +5,7 @@ import {BookSpecialComponent} from "./book-special.component";
 import {BookItemService} from "./book-item.service";
 import {BookSpecialService} from "./book-special.service";
 import {SearchPipe} from "./search.pipe";
+import {KeysPipe} from "./keys.pipe";
 
 // TypeScript compiles to JavaScript and creates the templates
 // which provide the markup and populate the content on the page
@@ -12,7 +13,7 @@ import {SearchPipe} from "./search.pipe";
   selector: "my-app",
   templateUrl: "partials/app.html",
   directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],
-  pipes: [SearchPipe],
+  pipes: [SearchPipe, KeysPipe],
   // CSS Styles
   styles: [
   	// CSS Styles - Backtick usage
@@ -29,7 +30,9 @@ import {SearchPipe} from "./search.pipe";
 
       .form-control {
         width: 100px;
-        margin-top: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
         clear: none;
       }
     `
@@ -50,6 +53,11 @@ export class AppComponent {
   ngOnInit() {
     this.bookItems = this.bookItemService.get();
     this.bookSpecials = this.bookSpecialService.get();
+  }
+
+  onBookSortChange(newValue) {
+    // currentBookItem.key = newValue;
+    console.log(newValue);
   }
 
   // Iterate over these in app.html
