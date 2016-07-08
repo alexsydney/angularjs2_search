@@ -12,8 +12,12 @@
 		        <span class="icon-bar bottom-bar"></span> 
 		      </button>
 		    </div>
-		    <div class="navbar-header pull-left col-xs-6 col-sm-12">
+		    <div class="navbar-header pull-left col-xs-4 col-sm-4">
 		    	<span class="navbar-brand"><h2>My books</h2></span>
+		    </div>
+		    <div class="navbar-header pull-right col-xs-4 col-sm-4">
+		    	<input class="form-control" placeholder="Search"
+		    	[(ngModel)]="query">
 		    </div>
 		  </div>
 		  <div class="row navbar-menu-list">
@@ -43,7 +47,9 @@
 
 					<book-welcome [bookChildWelcome]=currentBookWelcome></book-welcome>
 
+					<!-- <ul *ngIf="query"> -->
 					<ul>
+						<!-- <li *ngFor="let currentBookItem of (bookItems | find:query)" class="cf"> -->
 						<li *ngFor="let currentBookItem of bookItems" class="cf">
 							<!-- Pass Variable book-child-item from this Component Template to Child-Component Template Partial -->
 							<book-item [bookChildItem]=currentBookItem></book-item>
