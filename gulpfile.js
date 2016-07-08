@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     typescript = require('gulp-typescript'),
@@ -108,7 +110,7 @@ gulp.task('watch', function() {
   gulp.watch(appSrc + '**/*.html', ['html']);
 });
 
-gulp.task('webserver', function() {
+gulp.task('devserver', function() {
   gulp.src(appSrc)
     .pipe(webserver({
       livereload: true,
@@ -116,4 +118,17 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['tslint', 'clean', 'app:css', 'app:css:prefix', 'copylibs', 'typescript', 'watch', 'webserver']);
+gulp.task('prodserver', function() {
+  return gulp.src(appSrc).pipe(webserver({
+    host: '0.0.0.0',
+    port: process.env.PORT || 5000,
+    https: false,
+    livereload: false,
+    open: true
+  }));
+});
+
+gulp.task('default', ['tslint', 'clean', 'app:css', 'app:css:prefix', 'copylibs', 'typescript', 'watch', 'devserver']);
+
+// Heroku Build
+gulp.task('build', ['app:css', 'app:css:prefix', 'copylibs', 'typescript', 'prodserver']);
