@@ -23,6 +23,13 @@
 			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			            </div>
 
+			            <div>
+						        <p *ngFor='#result of webWorkerResults'>
+						            <span *ngIf='result.loading' class='spin-me-baby'>... Generating New Book ...</span>
+						            <span *ngIf='!result.loading'>{{ result.result }}</span> 
+						        </p>
+    							</div>
+
 			            <div class="modal-body newBookForm">
 			                <p>Please enter information about the book you read lately.</p>
 

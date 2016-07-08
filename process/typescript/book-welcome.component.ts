@@ -1,6 +1,8 @@
 import {Component} from "angular2/core";
 import {ControlGroup, Control, Validators} from "angular2/common";
 import {BookItemService} from "./book-item.service";
+import {WebWorkerService} from "angular2-web-worker";
+import {Result} from './result';
 
 @Component({
   selector: "book-welcome",
@@ -31,6 +33,15 @@ import {BookItemService} from "./book-item.service";
         border-color: #9ecaed;
         box-shadow: 0 0 10px #9ecaed;
       }
+
+      .spin-me-baby {
+        animation: spin 4s linear infinite;
+      }
+      @keyframes spin { 
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     `
   ],
   // CSS Styles in External Stylesheet
@@ -47,26 +58,31 @@ export class BookWelcomeComponent {
    * enter a Book Name or Book Author that already exists, this is
    * set to true, and the user is shown an error message
    */
-  duplicateExists = false;
+  private duplicateExists = false;
 
-  successCreatingBook = false;
+  private successCreatingBook = false;
 
   /** 
    * Default value true. If user clicks "NO" on Welcome Template
    * hasNewBook is set to false and Welcome Template closes
    */
-  hasNewBook = true;
+  private hasNewBook = true;
 
   /**
    * Store locally array of JSON book objects retrieved from
    * BookItemService
    */
-  bookItems;
+  private bookItems;
+
+  // Web Worker
+  public webWorkerResults = [];
+  private promises = [];
 
   // Class Property for Form
   form;
 
-  constructor(private bookItemService: BookItemService) {}
+  constructor(private bookItemService: BookItemService,
+              private _webWorkerService: WebWorkerService) {}
 
   // Lifecycle Events
   ngOnInit() {
@@ -91,8 +107,21 @@ export class BookWelcomeComponent {
   }
 
   // Custom Validator to Check Duplicate Book Not Exist
-  duplicateValidator(submitBookItem) {
-    // var duplicateExists = false;
+  private webWorkerValidator(submitBookItem) {
+
+    const promise = this._webWorkerService.run(this.isDup, submitBookItem);
+    // Default to non-duplicate and loading
+    const result = new Result(false, true);
+    this.webWorkerResults.push(result);
+    this.promises.push(promise);
+
+    promise.then(function (response) {
+      result.result = response;
+      result.loading = false;
+    });
+  }
+
+  private isDup(submitBookItem) {
 
     for (let book = 0; book < this.bookItems.length; book++) {
       for (let key in this.bookItems[book]) {
@@ -101,14 +130,14 @@ export class BookWelcomeComponent {
             this.bookItems[book][key] === submitBookItem["author"].trim()) {
             this.duplicateExists = true;
             console.log("Duplicate Detected: " + this.bookItems[book][key]);
+            return true;
           } else {
             // console.log("Non-duplicate: " + this.bookItems[book][key]);
           }
         }
       }
     }
-
-    // return duplicateExists;
+    return false;
   }
 
   onSubmit(submitBookItem) {
@@ -120,7 +149,7 @@ export class BookWelcomeComponent {
     this.successCreatingBook = false;
 
     // Do not add duplicate book items
-    this.duplicateValidator(submitBookItem);
+    this.webWorkerValidator(submitBookItem);
 
     if (this.duplicateExists === false) {
       this.bookItemService.add(submitBookItem);
