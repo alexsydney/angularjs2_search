@@ -4,7 +4,7 @@ import {BookItemComponent} from "./book-item.component";
 import {BookSpecialComponent} from "./book-special.component";
 import {BookItemService} from "./book-item.service";
 import {BookSpecialService} from "./book-special.service";
-// import {SearchPipe} from "./search.pipe";
+import {SearchPipe} from "./search.pipe";
 
 // TypeScript compiles to JavaScript and creates the templates
 // which provide the markup and populate the content on the page
@@ -12,7 +12,7 @@ import {BookSpecialService} from "./book-special.service";
   selector: "my-app",
   templateUrl: "partials/app.html",
   directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],
-  // pipes: [SearchPipe],
+  pipes: [SearchPipe],
   // CSS Styles
   styles: [
   	// CSS Styles - Backtick usage
@@ -25,6 +25,12 @@ import {BookSpecialService} from "./book-special.service";
       .navbar-menu-list h6 {
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
+      }
+
+      .form-control {
+        width: 100px;
+        margin-top: 10px;
+        clear: none;
       }
     `
   ],

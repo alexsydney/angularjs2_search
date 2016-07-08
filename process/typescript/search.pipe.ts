@@ -5,13 +5,23 @@ import {Pipe} from "angular2/core";
 })
 
 export class SearchPipe {
+
+  // Create transformation
   transform(pipeData, [pipeModifier]) {
-    return pipeData.filter((eachItem) => {
-      return eachItem["name"].toLowerCase()
-              .includes(pipeModifier.toLowerCase()) ||
-             eachItem["location"].toLowerCase()
-              .includes(pipeModifier.toLowerCase())
-      ;
-    });
+
+    // Pass data through filters
+    return pipeData.filter((eachItem => {
+
+      // Check not undefined to prevent error
+      if (typeof eachItem["name"] !== undefined &&
+          typeof eachItem["author"] !== undefined) {
+
+        return eachItem["name"].toLowerCase()
+                .includes(pipeModifier.toLowerCase()) ||
+               eachItem["author"].toLowerCase()
+                .includes(pipeModifier.toLowerCase())
+        ;
+      }
+    }));
   }
 }
