@@ -1,11 +1,14 @@
 Setup Instructions
 ========
 
+* Install [NPM](https://nodejs.org/en/)
+
 * Install Dependencies
 ```npm cache clean```
 ```npm install```
 
-* Build / Compile Sass to CSS / Compile TS to JS. Run Server ```gulp```
+* Build Project (Compiles Sass to CSS, compiles TypeScript to JavaScript). Runs Server in browser:
+```gulp```
 
 * Usage
 
