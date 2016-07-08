@@ -1,6 +1,8 @@
 /TypeScript/
 node_modules/
-/builds/development/js/**
+/builds/development/js/*.js
+/builds/development/js/*.js.map
+!/builds/development/js/lib/
 !/builds/development/css/
 !/builds/development/index.html
 .DS_Store
