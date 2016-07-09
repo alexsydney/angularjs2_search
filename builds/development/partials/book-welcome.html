@@ -17,49 +17,50 @@
 
 			<!-- Modal HTML -->
 			<div id="myModal" class="modal fade">
-			    <div class="modal-dialog">
-			        <div class="modal-content">
-			            <div class="modal-header">
-			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			            </div>
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			      </div>
 
-			            <div class="modal-body newBookForm">
-			                <p>Please enter information about the book you read lately.</p>
+			      <div class="modal-body newBookForm">
+			        <p>Please enter information about the book you read lately.</p>
 
-			                <!-- Model-Driven Form with Directive Binding -->
-			                <form 
-			                	(ngSubmit)="onSubmit(form.value)" 
-			                	[ngFormModel]="form">
+			        <!-- Model-Driven Form with Directive Binding -->
+			        <form 
+			        	(ngSubmit)="onSubmit(form.value)" 
+			        	[ngFormModel]="form">
 
-					            	<ul>
-					            		<li class="newBookFormItem cf">
-					            			<div *ngIf="duplicateExists === true" class="error">Duplicate Book Name or Book Author exists. Try again!</div>
-					            			<div *ngIf="successCreatingBook === true" class="success">Success. New book added!</div>
-					            			<label for="bookName" class="newBookFormLabel">Book Name</label>
-					            			<!-- Usage of glowing border -->
-					            			<input type="text" class="glowing-border" name="bookName" id="bookName" required autofocus ngControl="name" #name="ngForm">
-					            			<div *ngIf="name.errors?.pattern" class="error">Book Name has invalid characters</div>
-					            		</li>
-					            		<!-- Clearfix to ensure vertical alignment -->
-					            		<li class="newBookFormItem cf">
-					            			<label for="authorName" class="newBookFormLabel">Author Name</label>
-					            			<input type="text" class="glowing-border" name="authorName" id="authorName" required ngControl="author" #author="ngForm">
-					            			<div *ngIf="author.errors?.pattern" class="error">Author Name has invalid characters</div>
-					            		</li>
-					            	</ul>
-					            	<br>
-					            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					            	<!-- Submit disabled unless satisfy validation -->
-				                <button [disabled]="!form.valid" type="submit" class="btn btn-success">Save Book</button>
-				              </form>
-			            </div>
+			        	<ul>
+			        		<li class="newBookFormItem cf">
+			        			<div *ngIf="duplicateExists === true" class="error">Duplicate Book Name or Book Author exists. Try again!</div>
+			        			<div *ngIf="successCreatingBook === true" class="success">Success. New book added!</div>
+			        			<label for="bookName" class="newBookFormLabel">Book Name</label>
+			        			<!-- Usage of glowing border -->
+			        			<input type="text" class="glowing-border" name="bookName" id="bookName" required autofocus ngControl="name" #name="ngForm">
+			        			<div *ngIf="name.errors?.pattern" class="error">Book Name has invalid characters</div>
+			        		</li>
+			        		<!-- Clearfix to ensure vertical alignment -->
+			        		<li class="newBookFormItem cf">
+			        			<label for="authorName" class="newBookFormLabel">Author Name</label>
+			        			<input type="text" class="glowing-border" name="authorName" id="authorName" required ngControl="author" #author="ngForm">
+			        			<div *ngIf="author.errors?.pattern" class="error">Author Name has invalid characters</div>
+			        		</li>
+			        	</ul>
+			        	<br>
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        	<!-- Submit disabled unless satisfy validation -->
+			          <button [disabled]="!form.valid" type="submit" class="btn btn-success">Save Book</button>
+			        </form>
+			      </div>
 
-			            <div class="modal-footer">
-			            </div>
+			      <div class="modal-footer">
+			      </div>
 
-			        </div>
 			    </div>
+			  </div>
 			</div>
+
     </span>
   </div>
 

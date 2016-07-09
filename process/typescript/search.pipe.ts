@@ -9,7 +9,7 @@ export class SearchPipe {
   // Create transformation
   transform(pipeData, [pipeModifier]) {
 
-    // Pass data through filters
+    // Pass data through filters to return filtered set of data
     return pipeData.filter((eachItem => {
 
       // Check not undefined to prevent error

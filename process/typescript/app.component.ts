@@ -6,6 +6,7 @@ import {BookItemService} from "./book-item.service";
 import {BookSpecialService} from "./book-special.service";
 import {SearchPipe} from "./search.pipe";
 import {KeysPipe} from "./keys.pipe";
+import {ArrayOfBookItemsPipe} from "./array-of-book-items.pipe";
 
 // TypeScript compiles to JavaScript and creates the templates
 // which provide the markup and populate the content on the page
@@ -13,7 +14,7 @@ import {KeysPipe} from "./keys.pipe";
   selector: "my-app",
   templateUrl: "partials/app.html",
   directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],
-  pipes: [SearchPipe, KeysPipe],
+  pipes: [SearchPipe, KeysPipe, ArrayOfBookItemsPipe],
   // CSS Styles
   styles: [
   	// CSS Styles - Backtick usage
@@ -47,6 +48,9 @@ import {KeysPipe} from "./keys.pipe";
 
 export class AppComponent {
 
+  // Declare with default value
+  selectedBookSort = "NAME";
+
 	// Constructor/Initialiser function to auto setup instance value of Component
   constructor(private bookItemService: BookItemService, private bookSpecialService: BookSpecialService) {}
 
@@ -55,9 +59,10 @@ export class AppComponent {
     this.bookSpecials = this.bookSpecialService.get();
   }
 
+  // Triggered when user changes drop-down to sort book items by "name" or "author"
   onBookSortChange(newValue) {
-    // currentBookItem.key = newValue;
-    console.log(newValue);
+    this.selectedBookSort = newValue;
+    // console.log(newValue);
   }
 
   // Iterate over these in app.html
