@@ -1,4 +1,4 @@
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {BookSpecialInterface} from "../interfaces/book-special.interface";
 import {BookSpecialModel} from "../models/book-special.model";
 

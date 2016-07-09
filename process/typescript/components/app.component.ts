@@ -1,5 +1,5 @@
-import {Component} from "angular2/core";
-import {ViewEncapsulation} from "angular2/core";
+import {Component} from "@angular/core";
+import {ViewEncapsulation} from "@angular/core";
 import {BookWelcomeComponent} from "./book-welcome.component";
 import {BookItemComponent} from "./book-item.component";
 import {BookSpecialComponent} from "./book-special.component";

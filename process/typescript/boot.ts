@@ -1,4 +1,4 @@
-import {bootstrap} from "angular2/platform/browser";
+import {bootstrap} from "@angular/platform-browser-dynamic";
 import {AppComponent} from "./components/app.component";
 import {BookItemService} from "./services/book-item.service";
 import {BookSpecialService} from "./services/book-special.service";

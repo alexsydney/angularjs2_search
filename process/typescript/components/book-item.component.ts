@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from "angular2/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Rating2Directive} from "../directives/rating2.directive";
 import {Rating} from "./book-rating.component";
 
