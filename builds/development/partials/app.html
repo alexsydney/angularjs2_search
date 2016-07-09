@@ -5,19 +5,28 @@
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid nav-container">
 	  	<div class="row">
-		    <div class="navbar-header pull-left col-xs-2 hiddem-sm">
+		    <div class="navbar-header pull-left col-xs-1 hiddem-sm">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
 		        <span class="icon-bar top-bar"></span>
 		        <span class="icon-bar middle-bar"></span>
 		        <span class="icon-bar bottom-bar"></span> 
 		      </button>
 		    </div>
-		    <div class="navbar-header pull-left col-xs-4 col-sm-4">
+		    <div class="navbar-header pull-left col-xs-5 col-sm-4">
 		    	<span class="navbar-brand"><h2>My books</h2></span>
 		    </div>
 		    <div class="navbar-header pull-right col-xs-4 col-sm-4">
-		    	<input class="form-control" placeholder="Search"
-		    	[(ngModel)]="query">
+
+					<!-- TODO - implement search feature -->
+		    	<!-- <input class="form-control" placeholder="Search..." [(ngModel)]="query"> -->
+
+		    	<select class="form-control" [(ngModel)]="selectedBookSort" (ngModelChange)="onBookSortChange($event)">
+		    		<!-- Slice to remove shortname from the list displayed -->
+		        <option *ngFor="let currentBookItem of bookItems[0] | keys | slice:0:2; let i = index;">
+		        	<span *ngIf="currentBookItem.key !== 'shortname'">{{ currentBookItem.key | uppercase }}</span>
+		        </option>
+    			</select>
+
 		    </div>
 		  </div>
 		  <div class="row navbar-menu-list">
@@ -50,7 +59,7 @@
 					<!-- <ul *ngIf="query"> -->
 					<ul>
 						<!-- <li *ngFor="let currentBookItem of (bookItems | find:query)" class="cf"> -->
-						<li *ngFor="let currentBookItem of bookItems" class="cf">
+						<li *ngFor="let currentBookItem of bookItems | bookItemsSortBy:selectedBookSort" class="cf">
 							<!-- Pass Variable book-child-item from this Component Template to Child-Component Template Partial -->
 							<book-item [bookChildItem]=currentBookItem></book-item>
 						</li>

@@ -36,3 +36,7 @@ git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git T
 - Build in Sublime Text 3 to Compile TS to JS
 	- Tools > Build System > TypeScript
 ```CMD + B```
+
+# TODO
+
+- Convert to [Angular Material 2](https://github.com/angular/material2/blob/master/GETTING_STARTED.md)
