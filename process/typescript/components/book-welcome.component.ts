@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
 import {ControlGroup, Control, Validators} from "angular2/common";
-import {BookItemService} from "./book-item.service";
+import {BookItemService} from "../services/book-item.service";
 
 @Component({
   selector: "book-welcome",

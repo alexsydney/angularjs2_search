@@ -1,16 +1,19 @@
 import {Component} from "angular2/core";
+import {ViewEncapsulation} from "angular2/core";
 import {BookWelcomeComponent} from "./book-welcome.component";
 import {BookItemComponent} from "./book-item.component";
 import {BookSpecialComponent} from "./book-special.component";
-import {BookItemService} from "./book-item.service";
-import {BookSpecialService} from "./book-special.service";
-import {SearchPipe} from "./search.pipe";
-import {KeysPipe} from "./keys.pipe";
-import {ArrayOfBookItemsPipe} from "./array-of-book-items.pipe";
+import {BookItemService} from "../services/book-item.service";
+import {BookSpecialService} from "../services/book-special.service";
+import {SearchPipe} from "../pipes/search.pipe";
+import {KeysPipe} from "../pipes/keys.pipe";
+import {ArrayOfBookItemsPipe} from "../pipes/array-of-book-items.pipe";
 
 // TypeScript compiles to JavaScript and creates the templates
 // which provide the markup and populate the content on the page
 @Component({
+  // All styles in no styles out (default)
+  encapsulation: ViewEncapsulation.Emulated,
   selector: "my-app",
   templateUrl: "partials/app.html",
   directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],

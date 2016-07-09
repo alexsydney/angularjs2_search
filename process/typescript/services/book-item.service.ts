@@ -1,6 +1,6 @@
 import {Injectable} from "angular2/core";
-import {BookItemInterface} from "./book-item.interface";
-import {BookItemModel} from "./book-item.model";
+import {BookItemInterface} from "../interfaces/book-item.interface";
+import {BookItemModel} from "../models/book-item.model";
 
 // Best practice
 @Injectable()
@@ -15,9 +15,11 @@ export class BookItemService {
     return this.books;
   }
 
-  add(newBook) {
+  add(newBook: BookItemInterface) {
     console.log("Added Book: " + newBook);
     this.books.push(newBook);
+    // TODO - Added books are automatically sorted
+    // this.books = [...this.books, newBook];
   };
 
   constructor() {}
