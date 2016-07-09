@@ -15,6 +15,10 @@ gulp
 
 - After creating new book components. Choose from the drop-down selection box to sort their display order based on either "NAME" or "AUTHOR"
 
+- Click a Star Rating to change the pre-defined rating. New book components are given a zero (0) rating by default.
+
+- Click the Red Cross to delete a book component.
+
 - Install ChromeVox for text-to-speech screen reading. sr-only, aria-selected, aria-required, and aria-describedby classes for selection boxes and forms to W3C accessibility guidelines
 
 - Experiment with Responsive Web Design. Resize the page. On smaller screen sizes a single column is presented with a hamburger menu icon. On larger screen sizes two columns are presented with the menu items automatically expanded.
@@ -41,6 +45,10 @@ git clone --depth 1 https://github.com/Microsoft/TypeScript-Sublime-Plugin.git T
 	- Tools > Build System > TypeScript
 ```CMD + B```
 
-# TODO
 
+# TODO / Known Bugs
+
+- Only one hover colour using rating directive. Modify to match rating.
+- Mouseleave sometimes leaves the selected rating with gray colour instead of rating.
+- Sorting by the selected kind only works manually each time selection box drop-down item is chosen. It does not occur automatically when create/delete a book component.
 - Convert to [Angular Material 2](https://github.com/angular/material2/blob/master/GETTING_STARTED.md)
