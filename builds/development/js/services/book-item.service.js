@@ -25,8 +25,8 @@ System.register(["angular2/core", "../models/book-item.model"], function(exports
             BookItemService = (function () {
                 function BookItemService() {
                     this.books = [
-                        new book_item_model_1.BookItemModel("El Pooch", "Alex Nelson", "images/elpooch.jpg"),
-                        new book_item_model_1.BookItemModel("The Flight", "Scott Masterson", "images/theflight.jpg")
+                        new book_item_model_1.BookItemModel("El Pooch", "Alex Nelson", "images/elpooch.jpg", 1),
+                        new book_item_model_1.BookItemModel("The Flight", "Scott Masterson", "images/theflight.jpg", 2)
                     ]; // Array of Book Type
                 }
                 BookItemService.prototype.get = function () {
@@ -39,6 +39,41 @@ System.register(["angular2/core", "../models/book-item.model"], function(exports
                     // this.books = [...this.books, newBook];
                 };
                 ;
+                BookItemService.prototype.updateRating = function (newRating, existingBook) {
+                    console.log("Added Updated Rating: " + newRating);
+                    var i = this.books.indexOf(existingBook);
+                    this.books[i].rating = newRating;
+                    // console.log("Updated Books: " + JSON.stringify(this.books));
+                };
+                ;
+                /**
+                 * Move array item from old index position to the
+                 * right-most position in given array
+                 */
+                BookItemService.prototype.move = function (array, oldIndex, newIndex) {
+                    if (newIndex >= array.length) {
+                        newIndex = array.length - 1;
+                    }
+                    array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
+                    return array;
+                };
+                /**
+                 * Remove an item from the array by moving it to the
+                 * end of the array and then popping it. This avoids
+                 * leaving null elements in the array when using splice.
+                 */
+                BookItemService.prototype.remove = function (bookToRemove) {
+                    console.log("Removing Book: " + bookToRemove);
+                    var i = this.books.indexOf(bookToRemove);
+                    this.move(this.books, i, this.books.length - 1);
+                    // console.log(JSON.stringify(this.books));
+                    this.books.pop();
+                    // this.books = [
+                    //   ...this.books.slice(0, i),
+                    //   bookToRemove,
+                    //   ...this.books.slice(i + 1)
+                    // ];
+                };
                 BookItemService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

@@ -57,6 +57,14 @@ System.register(["angular2/core", "./book-welcome.component", "./book-item.compo
                     this.bookItems = this.bookItemService.get();
                     this.bookSpecials = this.bookSpecialService.get();
                 };
+                AppComponent.prototype.onUpdateRating = function (value, bookItem) {
+                    console.log("Receiving Emitted Event to Update Rating: " + value + ".. for Book Item: " + bookItem);
+                    this.bookItemService.updateRating(value, bookItem);
+                };
+                AppComponent.prototype.onBookItemDeleted = function (bookItem) {
+                    console.log("Receiving Emitted Event to Delete: " + bookItem);
+                    this.bookItemService.remove(bookItem);
+                };
                 // Triggered when user changes drop-down to sort book items by "name" or "author"
                 AppComponent.prototype.onBookSortChange = function (newValue) {
                     this.selectedBookSort = newValue;

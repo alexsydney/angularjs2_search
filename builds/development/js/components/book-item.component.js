@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function(exports_1, context_1) {
+System.register(["angular2/core", "../directives/rating2.directive", "./book-rating.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,65 @@ System.register(["angular2/core"], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, rating2_directive_1, book_rating_component_1;
     var BookItemComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (rating2_directive_1_1) {
+                rating2_directive_1 = rating2_directive_1_1;
+            },
+            function (book_rating_component_1_1) {
+                book_rating_component_1 = book_rating_component_1_1;
             }],
         execute: function() {
             BookItemComponent = (function () {
                 function BookItemComponent() {
+                    // Set property to event emitter object. Alias bookToDelete
+                    this.delete = new core_1.EventEmitter();
+                    this.rateChange = new core_1.EventEmitter();
                 }
+                BookItemComponent.prototype.ngOnInit = function () {
+                    // Initialise the rating shown on page load to the preset data values
+                    this.rate = this.bookChildItem.rating;
+                };
+                BookItemComponent.prototype.onUpdateRating = function (value) {
+                    console.log("Updating Rating (via Book Item Component): " + value);
+                    this.rate = value;
+                    this.rateChange.next(value);
+                };
+                BookItemComponent.prototype.onDelete = function () {
+                    console.log("Deleting: " + JSON.stringify(this.bookChildItem));
+                    // Raise Output delete event
+                    this.delete.emit(this.bookChildItem);
+                };
+                __decorate([
+                    core_1.Input("bookChildItemToWatch"), 
+                    __metadata('design:type', Object)
+                ], BookItemComponent.prototype, "bookChildItem", void 0);
+                __decorate([
+                    core_1.Output("bookToDelete"), 
+                    __metadata('design:type', Object)
+                ], BookItemComponent.prototype, "delete", void 0);
+                __decorate([
+                    core_1.Output("updateRate"), 
+                    __metadata('design:type', Object)
+                ], BookItemComponent.prototype, "rateChange", void 0);
                 BookItemComponent = __decorate([
                     core_1.Component({
                         selector: "book-item",
+                        directives: [rating2_directive_1.Rating2Directive, book_rating_component_1.Rating],
                         templateUrl: "partials/book-item.html",
+                        styles: [
+                            // CSS Styles - Backtick usage
+                            "\n      .delete {\n        float: right;\n        padding-right: 10px;\n        padding-bottom: 10px;\n      }\n      .rating {\n        margin-left: 10px;\n        font-size: 2em;\n        color: #dddddd;\n      }\n      .rating1 {\n        color: red;\n      }\n      .rating2 {\n        color: orange;\n      }\n      .rating3 {\n        color: #ccaa33;\n      }\n      .rating4 {\n        color: #dddd33;\n      }\n      .rating5 {\n        color: green;\n      }\n      .rating-bar {\n        margin-left: 15px;\n        padding-left: 5px;\n      }\n    "
+                        ],
                         // CSS Styles in External Stylesheet
                         styleUrls: [
                             "css/app.css"
-                        ],
-                        inputs: ["bookChildItem"]
+                        ]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BookItemComponent);

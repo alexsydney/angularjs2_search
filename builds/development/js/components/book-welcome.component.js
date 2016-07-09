@@ -52,7 +52,9 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                         "author": new common_1.Control("", common_1.Validators.compose([
                             common_1.Validators.required,
                             common_1.Validators.pattern("[\\w\\-\\s\\/]+")
-                        ]))
+                        ])),
+                        // Default value of 0
+                        "rating": new common_1.Control("0")
                     });
                 };
                 // Close the Welcome Component

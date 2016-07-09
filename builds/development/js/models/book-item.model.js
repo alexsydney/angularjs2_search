@@ -6,10 +6,11 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             BookItemModel = (function () {
-                function BookItemModel(name, author, shortname) {
+                function BookItemModel(name, author, shortname, rating) {
                     this.name = name;
                     this.author = author;
                     this.shortname = shortname;
+                    this.rating = rating;
                 }
                 return BookItemModel;
             }());

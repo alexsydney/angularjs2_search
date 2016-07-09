@@ -9,14 +9,39 @@
 	<figcaption class="col-xs-9">
 		<div class="row">
 			<div class="bookFigCaptionDetails">
+				<a (click)="onDelete()" class="delete btn btn-small btn-danger">
+					<i class="glyphicon glyphicon-remove"></i>
+				</a>
 				<h3>{{ bookChildItem.name }}</h3>
 				<h5>By {{ bookChildItem.author }}</h5>
+
 			</div>
 			<div class="bookFigCaptionLinks">
 				<span class="firstLink"><a href="#">FREE SAMPLE</a></span>
 				<span class="bookLinksSpacer"></span>
-	      <span class="secondLink"><a href="#">REVIEW</a></span>
+	      <span class="secondLink">
+	      	<!-- Toggle Visibility of Ratings section -->
+	      	<a (click)="showRatings = !showRatings">REVIEW</a></span>
 	    </div>
+		</div>
+		<div 
+			*ngIf="bookChildItem.rating" 
+			[hidden]="showRatings" 
+			class="row">
+
+			<!-- Input ([rate] property) and Output ((updateRate) alias event) -->
+			<rating
+				class="rating"
+				[rating2]="bookChildItem.rating"
+				[ngClass]=
+				"{'rating5': bookChildItem.rating === 5,
+				  'rating4': bookChildItem.rating === 4,
+				  'rating3': bookChildItem.rating === 3,
+					'rating2': bookChildItem.rating === 2,
+				  'rating1': bookChildItem.rating === 1}"
+				(updateRate)="onUpdateRating($event)"></rating>
+			<pre class="rating-bar">Rating: <b>{{bookChildItem.rating}}</b></pre>
+
 		</div>
 	</figcaption>
 

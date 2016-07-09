@@ -81,7 +81,9 @@ export class BookWelcomeComponent {
       "author": new Control("", Validators.compose([
         Validators.required,
         Validators.pattern("[\\w\\-\\s\\/]+")
-      ]))
+      ])),
+      // Default value of 0
+      "rating": new Control("0")
     });
   }
 

@@ -62,6 +62,17 @@ export class AppComponent {
     this.bookSpecials = this.bookSpecialService.get();
   }
 
+  onUpdateRating(value, bookItem) {
+    console.log("Receiving Emitted Event to Update Rating: " + value + ".. for Book Item: " + bookItem);
+    this.bookItemService.updateRating(value, bookItem);
+  }
+
+  onBookItemDeleted(bookItem) {
+    console.log("Receiving Emitted Event to Delete: " + bookItem);
+
+    this.bookItemService.remove(bookItem);
+  }
+
   // Triggered when user changes drop-down to sort book items by "name" or "author"
   onBookSortChange(newValue) {
     this.selectedBookSort = newValue;

@@ -3,4 +3,5 @@ export interface BookItemInterface {
   name: string;
   shortname: string;
   author: string;
+  rating: number;
 }
