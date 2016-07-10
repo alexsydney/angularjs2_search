@@ -99,7 +99,6 @@ body {
   color: #000000;
   font-family: 'Roboto', sans-serif;
   font-size: 1em;
-  font-weight: 400;
   margin: 0;
   padding: 0.5em;
   background-color: #ffffff; }
@@ -175,7 +174,6 @@ body .nav-container .form-control {
 
 body .nav-container h2 {
   font-family: 'Roboto', sans-serif;
-  font-weight: normal;
   margin-left: 0.8em;
   vertical-align: middle;
   display: inline-block; }
@@ -193,8 +191,7 @@ body .nav-container .navbar-menu-list li > a:focus {
   color: #ec1561; }
 
 body .nav-container .navbar-menu-list h6 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold; }
+  font-family: 'Roboto', sans-serif; }
 
 @media all and (max-width: 767px) {
   body .navbar-menu-list li > a {
@@ -262,8 +259,7 @@ img {
   border-bottom: 1px solid #eeeeee; }
 
 .bookFigCaptionDetails > h3, .bookFigCaptionDetails h5 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal; }
+  font-weight: 400; }
 
 .bookFigCaptionDetails > h5 {
   color: #d2d2d2; }
@@ -336,8 +332,7 @@ h2 span {
   border-bottom: 1px solid #eeeeee; }
 
 .bookFigCaptionDetails > h3, .bookFigCaptionDetails h5 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal; }
+  font-weight: 400; }
 
 .bookFigCaptionDetails > h5 {
   color: #d2d2d2; }
@@ -385,8 +380,7 @@ h2 span {
   border-bottom: 1px solid #eeeeee; }
 
 .bookWelcomeDetails > h3, .bookWelcomeDetails h5 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal; }
+  font-weight: 400; }
 
 .bookWelcomeDetails > h5 {
   color: #d2d2d2; }

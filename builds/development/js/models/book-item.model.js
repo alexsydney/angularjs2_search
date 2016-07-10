@@ -5,6 +5,7 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
+            // Data Model
             BookItemModel = (function () {
                 function BookItemModel(name, author, shortname, rating) {
                     this.name = name;

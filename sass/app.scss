@@ -1,15 +1,23 @@
+@import 'normalise';
+
 // Import reusable variables and mixins
 @import 'variables';
 @import 'mixins';
-@import 'normalise';
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+
+// Local version of https://fonts.googleapis.com/css?family=Roboto:400,500,700
+// @font-face {
+//   font-family: 'Roboto';
+//   font-weight: 400;
+//   // src: url(https://fonts.gstatic.com/s/roboto/v15/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+// 	src: url(../js/lib/google/fonts/Roboto400.woff) format('woff');
+// }
 
 body { 
 	color: #000000; 
 	font-family: 'Roboto', sans-serif;
 	font-size: 1em;
-	font-weight: 400;
 	margin: 0;
 	padding: 0.5em;
 	background-color: $backgroundColor;
@@ -84,7 +92,6 @@ body {
 
 		h2 {
 			font-family: 'Roboto', sans-serif;
-			font-weight: normal;
 			margin-left: 0.8em;
 	    vertical-align: middle;
 	    display: inline-block;
@@ -106,7 +113,6 @@ body {
 
     .navbar-menu-list h6 {
       font-family: 'Roboto', sans-serif;
-      font-weight: bold;
     }
 	}
 
