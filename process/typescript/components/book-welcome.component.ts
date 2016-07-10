@@ -5,34 +5,7 @@ import {BookItemService} from "../services/book-item.service";
 @Component({
   selector: "book-welcome",
   templateUrl: "partials/book-welcome.html",
-  // CSS Styles
-  styles: [
-    // CSS Styles - Backtick usage
-    `
-      .newBookForm {
-        padding: 20px;
-      }
 
-      .newBookFormItem {
-        padding: 10px;
-      }
-
-      .newBookFormLabel {
-        padding-right: 10px;
-      }
-
-      .glowing-border {
-        border: 2px solid #dadada;
-        border-radius: 7px;
-      }
-
-      .glowing-border:focus { 
-        outline: none;
-        border-color: #9ecaed;
-        box-shadow: 0 0 10px #9ecaed;
-      }
-    `
-  ],
   // CSS Styles in External Stylesheet
   styleUrls: [
     "css/app.css"
@@ -47,24 +20,24 @@ export class BookWelcomeComponent {
    * enter a Book Name or Book Author that already exists, this is
    * set to true, and the user is shown an error message
    */
-  duplicateExists = false;
+  private duplicateExists = false;
 
-  successCreatingBook = false;
+  private successCreatingBook = false;
 
   /** 
    * Default value true. If user clicks "NO" on Welcome Template
    * hasNewBook is set to false and Welcome Template closes
    */
-  hasNewBook = true;
+  private hasNewBook = true;
 
   /**
    * Store locally array of JSON book objects retrieved from
    * BookItemService
    */
-  bookItems;
+  private bookItems;
 
   // Class Property for Form
-  form;
+  private form;
 
   constructor(private bookItemService: BookItemService) {}
 
@@ -73,15 +46,19 @@ export class BookWelcomeComponent {
     this.bookItems = this.bookItemService.get();
 
     this.form = new ControlGroup({
+
       // Default Values are Empty Strings
       "name": new Control("", Validators.compose([
         Validators.required,
+
+        // Validate input field using RegEx to contain alphanumeric
         Validators.pattern("[\\w\\-\\s\\/]+")
       ])),
       "author": new Control("", Validators.compose([
         Validators.required,
         Validators.pattern("[\\w\\-\\s\\/]+")
       ])),
+
       // Default value of 0
       "rating": new Control("0")
     });
@@ -94,14 +71,16 @@ export class BookWelcomeComponent {
 
   // Custom Validator to Check Duplicate Book Not Exist
   duplicateValidator(submitBookItem) {
-    // var duplicateExists = false;
 
     for (let book = 0; book < this.bookItems.length; book++) {
       for (let key in this.bookItems[book]) {
         if (this.bookItems.hasOwnProperty(book)) {
           if (this.bookItems[book][key] === submitBookItem["name"].trim() ||
             this.bookItems[book][key] === submitBookItem["author"].trim()) {
+
+            // Set local property to indicate that duplicate book item exists
             this.duplicateExists = true;
+
             console.log("Duplicate Detected: " + this.bookItems[book][key]);
           } else {
             // console.log("Non-duplicate: " + this.bookItems[book][key]);
@@ -109,10 +88,9 @@ export class BookWelcomeComponent {
         }
       }
     }
-
-    // return duplicateExists;
   }
 
+  // Form submission method
   onSubmit(submitBookItem) {
 
     // Reset value of duplicateExists to allow next submission
@@ -125,6 +103,8 @@ export class BookWelcomeComponent {
     this.duplicateValidator(submitBookItem);
 
     if (this.duplicateExists === false) {
+
+      // Call Service method to add new book item form fields to JSON data model
       this.bookItemService.add(submitBookItem);
 
       // Show success message to user
@@ -133,6 +113,5 @@ export class BookWelcomeComponent {
       console.log("Added Book Item: " + JSON.stringify(submitBookItem) );
       console.log("Updated Book Items List: " + JSON.stringify(this.bookItemService.get()) );
     }
-
   }
 }

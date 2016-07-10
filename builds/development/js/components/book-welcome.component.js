@@ -47,6 +47,7 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                         // Default Values are Empty Strings
                         "name": new common_1.Control("", common_1.Validators.compose([
                             common_1.Validators.required,
+                            // Validate input field using RegEx to contain alphanumeric
                             common_1.Validators.pattern("[\\w\\-\\s\\/]+")
                         ])),
                         "author": new common_1.Control("", common_1.Validators.compose([
@@ -63,12 +64,12 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                 };
                 // Custom Validator to Check Duplicate Book Not Exist
                 BookWelcomeComponent.prototype.duplicateValidator = function (submitBookItem) {
-                    // var duplicateExists = false;
                     for (var book = 0; book < this.bookItems.length; book++) {
                         for (var key in this.bookItems[book]) {
                             if (this.bookItems.hasOwnProperty(book)) {
                                 if (this.bookItems[book][key] === submitBookItem["name"].trim() ||
                                     this.bookItems[book][key] === submitBookItem["author"].trim()) {
+                                    // Set local property to indicate that duplicate book item exists
                                     this.duplicateExists = true;
                                     console.log("Duplicate Detected: " + this.bookItems[book][key]);
                                 }
@@ -77,8 +78,8 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                             }
                         }
                     }
-                    // return duplicateExists;
                 };
+                // Form submission method
                 BookWelcomeComponent.prototype.onSubmit = function (submitBookItem) {
                     // Reset value of duplicateExists to allow next submission
                     this.duplicateExists = false;
@@ -87,6 +88,7 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                     // Do not add duplicate book items
                     this.duplicateValidator(submitBookItem);
                     if (this.duplicateExists === false) {
+                        // Call Service method to add new book item form fields to JSON data model
                         this.bookItemService.add(submitBookItem);
                         // Show success message to user
                         this.successCreatingBook = true;
@@ -98,11 +100,6 @@ System.register(["angular2/core", "angular2/common", "../services/book-item.serv
                     core_1.Component({
                         selector: "book-welcome",
                         templateUrl: "partials/book-welcome.html",
-                        // CSS Styles
-                        styles: [
-                            // CSS Styles - Backtick usage
-                            "\n      .newBookForm {\n        padding: 20px;\n      }\n\n      .newBookFormItem {\n        padding: 10px;\n      }\n\n      .newBookFormLabel {\n        padding-right: 10px;\n      }\n\n      .glowing-border {\n        border: 2px solid #dadada;\n        border-radius: 7px;\n      }\n\n      .glowing-border:focus { \n        outline: none;\n        border-color: #9ecaed;\n        box-shadow: 0 0 10px #9ecaed;\n      }\n    "
-                        ],
                         // CSS Styles in External Stylesheet
                         styleUrls: [
                             "css/app.css"

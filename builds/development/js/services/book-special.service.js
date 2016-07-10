@@ -21,18 +21,17 @@ System.register(["angular2/core", "../models/book-special.model"], function(expo
                 book_special_model_1 = book_special_model_1_1;
             }],
         execute: function() {
-            // Best practice
             BookSpecialService = (function () {
                 // Constructor/Initialiser function to auto setup instance value of Component
                 function BookSpecialService() {
                     /**
-                     * Array of Type Special Book (in object format defined in Interface)
-                     * and fed with raw sample Data. JSON representations of the content.
+                     * Array of type special book (in object format defined in interface)
+                     * is fed with raw sample JSON data representations of the content.
                      */
-                    // Use "name" data to overlay the image instead of static image text
+                    // Use "name" data property to overlay the image instead of embedded image text
                     this.specialBooks = [
                         new book_special_model_1.BookSpecialModel("Top 10 Australian Beaches", "10", "images/top.jpg", "Whitehaven Beach", "Whitesunday Island, Whitsunday Islands")
-                    ]; // Array of Special Book Type
+                    ];
                 }
                 BookSpecialService.prototype.get = function () {
                     return this.specialBooks;

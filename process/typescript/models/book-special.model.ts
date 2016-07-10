@@ -1,3 +1,4 @@
+// Data Model
 export class BookSpecialModel {
 
   constructor(

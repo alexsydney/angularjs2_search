@@ -166,6 +166,13 @@ body .nav-container .navbar-brand {
 body .nav-container .navbar-brand:hover {
   color: #ffffff; }
 
+body .nav-container .form-control {
+  width: 100px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  clear: none; }
+
 body .nav-container h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
@@ -185,6 +192,10 @@ body .nav-container .navbar-menu-list li > a:hover {
 body .nav-container .navbar-menu-list li > a:focus {
   color: #ec1561; }
 
+body .nav-container .navbar-menu-list h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold; }
+
 @media all and (max-width: 767px) {
   body .navbar-menu-list li > a {
     border-bottom: 1px solid #eeeeee; } }
@@ -192,6 +203,10 @@ body .nav-container .navbar-menu-list li > a:focus {
 body .componentEffects {
   box-shadow: 3px 3px 3px #aaaaaa;
   border-radius: 2px; }
+
+body .contentWrapper {
+  background-color: #dddddd;
+  padding: 5px; }
 
 body .success {
   color: green; }
@@ -212,6 +227,35 @@ body .btn-default {
 img {
   width: 100%;
   height: 100%; }
+
+.delete {
+  float: right;
+  padding-right: 10px;
+  padding-bottom: 10px; }
+
+.rating {
+  margin-left: 10px;
+  font-size: 2em;
+  color: #dddddd; }
+
+.rating1 {
+  color: red; }
+
+.rating2 {
+  color: orange; }
+
+.rating3 {
+  color: #ccaa33; }
+
+.rating4 {
+  color: #dddd33; }
+
+.rating5 {
+  color: green; }
+
+.rating-bar {
+  margin-left: 15px;
+  padding-left: 5px; }
 
 .bookFigCaptionDetails {
   padding: 10px;
@@ -329,6 +373,9 @@ h2 span {
 .bookLinksSpacer {
   padding: 10px; }
 
+/**
+ * Welcome view
+ */
 .bookWelcomeWrapper {
   background-color: #ffffff;
   margin: 5px auto; }
@@ -380,3 +427,24 @@ h2 span {
 
 .bookLinksSpacer {
   padding: 10px; }
+
+/**
+ * Modal to create a new book
+ */
+.newBookForm {
+  padding: 20px; }
+
+.newBookFormItem {
+  padding: 10px; }
+
+.newBookFormLabel {
+  padding-right: 10px; }
+
+.glowing-border {
+  border: 2px solid #dadada;
+  border-radius: 7px; }
+
+.glowing-border:focus {
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed; }

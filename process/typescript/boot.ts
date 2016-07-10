@@ -5,8 +5,10 @@ import {BookSpecialService} from "./services/book-special.service";
 
 // enableProdMode();
 
-// Register BookItemService and BookSpecialService in dependency graph so
-// available down the component hierarchy
+/**
+ * Register BookItemService and BookSpecialService in dependency graph so
+ * available down the component hierarchy
+ */
 let appProviders = [BookItemService, BookSpecialService];
 
 bootstrap(AppComponent, appProviders);

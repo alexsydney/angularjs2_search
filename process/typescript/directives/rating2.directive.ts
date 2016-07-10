@@ -4,7 +4,9 @@ import {Directive, HostBinding, HostListener, Input} from "angular2/core";
   selector: "[rating2]"
 })
 
-// Only used for hover effect at the moment
+/**
+ * Directive only currently used for hover effect
+ */
 // TODO - Fix hover colour to match star instead of always 4
 export class Rating2Directive {
   @HostBinding("class.rating2") rating;
@@ -23,6 +25,5 @@ export class Rating2Directive {
   @Input()
   set rating2(value) {
     // this.rating = value;
-    // console.log("Rating 2 set");
   }
 }

@@ -22,13 +22,16 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 function Rating() {
                     // Set property to event emitter object. Local Alias updateRate
                     this.rateChange = new core_1.EventEmitter();
+                    // Initialise star ratings range of values
                     this.range = [1, 2, 3, 4, 5];
                 }
+                /**
+                 * Emit an event each time user clicks a star rating to update the
+                 * rate by pushing a new value
+                 */
                 Rating.prototype.update = function (value) {
                     console.log("Updated Rating (via Book Rating Component): " + value);
                     this.rate = value;
-                    // Emit an event each time user clicks a star to
-                    // update the rate by pushing a new value
                     this.rateChange.next(value);
                 };
                 __decorate([
@@ -42,7 +45,8 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 Rating = __decorate([
                     core_1.Component({
                         selector: "rating",
-                        template: "\n    <span tabindex=\"0\">\n      <template ngFor let-item=\"$implicit\" [ngForOf]=\"range\" let-i=\"index\">\n        <span class=\"sr-only\">({{ i < rate ? '*' : ' ' }})</span>\n        <i class=\"glyphicon\" (click)=\"update(i + 1)\"\n          [ngClass]=\"i < rate ? 'glyphicon-star' : 'glyphicon-star-empty'\"></i>\n      </template>\n    </span>\n  "
+                        // Refactored view into partial instead of embedding using backticks
+                        templateUrl: "partials/book-rating.html"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Rating);

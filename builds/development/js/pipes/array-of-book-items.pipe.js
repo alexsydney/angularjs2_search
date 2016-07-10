@@ -18,13 +18,13 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            // Filter Array of Objects
+            // Pipe to Filter Array of Objects
             ArrayOfBookItemsPipe = (function () {
                 function ArrayOfBookItemsPipe() {
                 }
                 /**
                  * Sort by property passed in. Ensure convert each string
-                 * value to lowercase otherwise Capitalised are shown first.
+                 * value to lowercase otherwise capitalised are shown first.
                  */
                 ArrayOfBookItemsPipe.prototype.sortByProperty = function (property) {
                     return function (a, b) {
@@ -38,7 +38,10 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                         return sortStatus;
                     };
                 };
-                // Pass data through filters using args to return filtered set of data
+                /**
+                 * Pass data through filters. args is the name of the object property within
+                 * the array to filter by. Return filtered set of data.
+                 */
                 ArrayOfBookItemsPipe.prototype.transform = function (booksArray, args) {
                     var sortedArray = booksArray.sort(this.sortByProperty(args.toLowerCase()));
                     return sortedArray;

@@ -1,3 +1,4 @@
+// Import reusable variables and mixins
 @import 'variables';
 @import 'mixins';
 @import 'normalise';
@@ -72,6 +73,15 @@ body {
 			}
 		}
 
+		// Forms
+    .form-control {
+      width: 100px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      clear: none;
+    }
+
 		h2 {
 			font-family: 'Roboto', sans-serif;
 			font-weight: normal;
@@ -94,6 +104,10 @@ body {
 			}
 		}
 
+    .navbar-menu-list h6 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+    }
 	}
 
 	// Implement commonly used breakpoint for responsive styles
@@ -109,6 +123,12 @@ body {
 	.componentEffects {
 		@include componentDropshadow();
 	}
+
+	// Wrapper containing all book item components for display to user
+  .contentWrapper {
+    background-color: #dddddd;
+    padding: 5px;
+  }
 
 	.success {
 		color: green;

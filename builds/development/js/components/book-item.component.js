@@ -31,7 +31,7 @@ System.register(["angular2/core", "../directives/rating2.directive", "./book-rat
                     this.rateChange = new core_1.EventEmitter();
                 }
                 BookItemComponent.prototype.ngOnInit = function () {
-                    // Initialise the rating shown on page load to the preset data values
+                    // Initialise rating shown on page load to preset data values
                     this.rate = this.bookChildItem.rating;
                 };
                 BookItemComponent.prototype.onUpdateRating = function (value) {
@@ -61,10 +61,6 @@ System.register(["angular2/core", "../directives/rating2.directive", "./book-rat
                         selector: "book-item",
                         directives: [rating2_directive_1.Rating2Directive, book_rating_component_1.Rating],
                         templateUrl: "partials/book-item.html",
-                        styles: [
-                            // CSS Styles - Backtick usage
-                            "\n      .delete {\n        float: right;\n        padding-right: 10px;\n        padding-bottom: 10px;\n      }\n      .rating {\n        margin-left: 10px;\n        font-size: 2em;\n        color: #dddddd;\n      }\n      .rating1 {\n        color: red;\n      }\n      .rating2 {\n        color: orange;\n      }\n      .rating3 {\n        color: #ccaa33;\n      }\n      .rating4 {\n        color: #dddd33;\n      }\n      .rating5 {\n        color: green;\n      }\n      .rating-bar {\n        margin-left: 15px;\n        padding-left: 5px;\n      }\n    "
-                        ],
                         // CSS Styles in External Stylesheet
                         styleUrls: [
                             "css/app.css"

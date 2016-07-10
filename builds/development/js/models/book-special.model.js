@@ -5,6 +5,7 @@ System.register([], function(exports_1, context_1) {
     return {
         setters:[],
         execute: function() {
+            // Data Model
             BookSpecialModel = (function () {
                 function BookSpecialModel(name, bookNumber, shortname, addressLine1, addressLine2) {
                     this.name = name;

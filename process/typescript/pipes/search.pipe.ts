@@ -1,5 +1,6 @@
 import {Pipe} from "angular2/core";
 
+// Pipe to Filter and return the book items matching name/author
 @Pipe({
   name: "find"
 })

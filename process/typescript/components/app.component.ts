@@ -9,44 +9,19 @@ import {SearchPipe} from "../pipes/search.pipe";
 import {KeysPipe} from "../pipes/keys.pipe";
 import {ArrayOfBookItemsPipe} from "../pipes/array-of-book-items.pipe";
 
-// TypeScript compiles to JavaScript and creates the templates
-// which provide the markup and populate the content on the page
 @Component({
-  // All styles in no styles out (default)
+
+  // Emulated is for all styles in and no styles out of component (default)
   encapsulation: ViewEncapsulation.Emulated,
   selector: "my-app",
   templateUrl: "partials/app.html",
   directives: [BookWelcomeComponent, BookItemComponent, BookSpecialComponent],
   pipes: [SearchPipe, KeysPipe, ArrayOfBookItemsPipe],
-  // CSS Styles
-  styles: [
-  	// CSS Styles - Backtick usage
-    `
-      .contentWrapper {
-        background-color: #dddddd;
-        padding: 5px;
-      }
-
-      .navbar-menu-list h6 {
-        font-family: 'Roboto', sans-serif;
-        font-weight: bold;
-      }
-
-      .form-control {
-        width: 100px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-right: 5px;
-        clear: none;
-      }
-    `
-  ],
 
   // CSS Styles in External Stylesheet
   styleUrls: [
     "css/app.css"
   ]
-
 })
 
 export class AppComponent {

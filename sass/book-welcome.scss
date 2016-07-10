@@ -1,6 +1,9 @@
 @import 'variables';
 @import 'mixins';
 
+/**
+ * Welcome view
+ */
 .bookWelcomeWrapper {
   @include bookWrapper();
 }
@@ -20,3 +23,30 @@
 }
 
 .bookLinksSpacer { @include linksSpacer(); }
+
+/**
+ * Modal to create a new book
+ */
+
+.newBookForm {
+  padding: 20px;
+}
+
+.newBookFormItem {
+  padding: 10px;
+}
+
+.newBookFormLabel {
+  padding-right: 10px;
+}
+
+.glowing-border {
+  border: 2px solid #dadada;
+  border-radius: 7px;
+}
+
+.glowing-border:focus { 
+  outline: none;
+  border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}

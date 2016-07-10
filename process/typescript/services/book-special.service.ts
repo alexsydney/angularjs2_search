@@ -2,16 +2,15 @@ import {Injectable} from "angular2/core";
 import {BookSpecialInterface} from "../interfaces/book-special.interface";
 import {BookSpecialModel} from "../models/book-special.model";
 
-// Best practice
 @Injectable()
 export class BookSpecialService {
 
   /**
-   * Array of Type Special Book (in object format defined in Interface)
-   * and fed with raw sample Data. JSON representations of the content.
+   * Array of type special book (in object format defined in interface)
+   * is fed with raw sample JSON data representations of the content.
    */
 
-  // Use "name" data to overlay the image instead of static image text
+  // Use "name" data property to overlay the image instead of embedded image text
   specialBooks: BookSpecialInterface[] = [
     new BookSpecialModel(
       "Top 10 Australian Beaches",
@@ -20,7 +19,7 @@ export class BookSpecialService {
       "Whitehaven Beach",
       "Whitesunday Island, Whitsunday Islands"
     )
-  ]; // Array of Special Book Type
+  ];
 
   get() {
     return this.specialBooks;

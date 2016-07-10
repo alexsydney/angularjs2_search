@@ -18,6 +18,7 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            // Pipe to Filter and return the book items matching name/author
             SearchPipe = (function () {
                 function SearchPipe() {
                 }

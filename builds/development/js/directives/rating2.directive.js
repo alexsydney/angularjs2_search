@@ -31,7 +31,6 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 Object.defineProperty(Rating2Directive.prototype, "rating2", {
                     set: function (value) {
                         // this.rating = value;
-                        // console.log("Rating 2 set");
                     },
                     enumerable: true,
                     configurable: true

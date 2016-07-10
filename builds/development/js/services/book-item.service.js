@@ -21,9 +21,10 @@ System.register(["angular2/core", "../models/book-item.model"], function(exports
                 book_item_model_1 = book_item_model_1_1;
             }],
         execute: function() {
-            // Best practice
+            // Service to abstract common methods. Best practice use of @Injectable
             BookItemService = (function () {
                 function BookItemService() {
+                    // Create instances of book item data model in accordance with defined interface type
                     this.books = [
                         new book_item_model_1.BookItemModel("El Pooch", "Alex Nelson", "images/elpooch.jpg", 1),
                         new book_item_model_1.BookItemModel("The Flight", "Scott Masterson", "images/theflight.jpg", 2)
@@ -35,13 +36,16 @@ System.register(["angular2/core", "../models/book-item.model"], function(exports
                 BookItemService.prototype.add = function (newBook) {
                     console.log("Added Book: " + newBook);
                     this.books.push(newBook);
-                    // TODO - Added books are automatically sorted
+                    // TODO - Automatically sort the books when added
                     // this.books = [...this.books, newBook];
                 };
                 ;
+                // Update star rating of book item
                 BookItemService.prototype.updateRating = function (newRating, existingBook) {
                     console.log("Added Updated Rating: " + newRating);
+                    // Obtain the array index of the book item for which we want to update its star rating
                     var i = this.books.indexOf(existingBook);
+                    // Assign new rating as value of rating property for index
                     this.books[i].rating = newRating;
                     // console.log("Updated Books: " + JSON.stringify(this.books));
                 };

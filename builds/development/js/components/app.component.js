@@ -43,8 +43,6 @@ System.register(["angular2/core", "./book-welcome.component", "./book-item.compo
                 array_of_book_items_pipe_1 = array_of_book_items_pipe_1_1;
             }],
         execute: function() {
-            // TypeScript compiles to JavaScript and creates the templates
-            // which provide the markup and populate the content on the page
             AppComponent = (function () {
                 // Constructor/Initialiser function to auto setup instance value of Component
                 function AppComponent(bookItemService, bookSpecialService) {
@@ -72,17 +70,12 @@ System.register(["angular2/core", "./book-welcome.component", "./book-item.compo
                 };
                 AppComponent = __decorate([
                     core_1.Component({
-                        // All styles in no styles out (default)
+                        // Emulated is for all styles in and no styles out of component (default)
                         encapsulation: core_2.ViewEncapsulation.Emulated,
                         selector: "my-app",
                         templateUrl: "partials/app.html",
                         directives: [book_welcome_component_1.BookWelcomeComponent, book_item_component_1.BookItemComponent, book_special_component_1.BookSpecialComponent],
                         pipes: [search_pipe_1.SearchPipe, keys_pipe_1.KeysPipe, array_of_book_items_pipe_1.ArrayOfBookItemsPipe],
-                        // CSS Styles
-                        styles: [
-                            // CSS Styles - Backtick usage
-                            "\n      .contentWrapper {\n        background-color: #dddddd;\n        padding: 5px;\n      }\n\n      .navbar-menu-list h6 {\n        font-family: 'Roboto', sans-serif;\n        font-weight: bold;\n      }\n\n      .form-control {\n        width: 100px;\n        margin-top: 5px;\n        margin-bottom: 5px;\n        margin-right: 5px;\n        clear: none;\n      }\n    "
-                        ],
                         // CSS Styles in External Stylesheet
                         styleUrls: [
                             "css/app.css"
