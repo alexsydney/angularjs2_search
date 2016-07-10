@@ -1,5 +1,4 @@
 /* Reset Styles */
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -94,6 +93,11 @@ h3 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none; }
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url(js/lib/google/fonts/Roboto400.woff) format("woff"); }
 
 body {
   color: #000000;

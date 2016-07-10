@@ -42,6 +42,8 @@ gulp.task('clean', function() {
     !appSrc + 'images/**',
     !appSrc + 'js/lib/angular2/**',
     !appSrc + 'js/lib/bootstrap-3.3.6-dist/**',
+    !appSrc + 'js/lib/jquery/**',
+    !appSrc + 'js/lib/google/fonts/**',
     appSrc + 'css/*.css',
     appSrc + 'js/*.js',
     appSrc + 'js/*.js.map'
