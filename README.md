@@ -9,6 +9,8 @@
 gulp
 ```
 
+Note: Internet connection required to load fonts
+
 ### Usage
 
 - Create New Book Component. Click YES in the Welcome back! component view to open modal. Enter a unique Book Name & Author Name into the modal form and click Save Book to create a new book component on the page (validation checks prevent duplicates from being created). Close the modal by pressing the Close button (or click outside the modal). Scroll down the page to view the new book components that were created.
